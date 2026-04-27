@@ -103,11 +103,17 @@ export default function Home() {
 
     const updateActiveSection = () => {
       const headerHeight = document.querySelector('.site-header')?.offsetHeight || 0;
-      const activationLine = headerHeight + 24;
+      const activationLine = headerHeight + 48;
       let currentSectionId = sections[0]?.id || 'product';
+      let closestDistance = Number.POSITIVE_INFINITY;
 
       sections.forEach((section) => {
-        if (section.getBoundingClientRect().top <= activationLine) {
+        const rect = section.getBoundingClientRect();
+        const isNearViewport = rect.bottom >= activationLine && rect.top <= window.innerHeight;
+        const distance = Math.abs(rect.top - activationLine);
+
+        if (isNearViewport && distance < closestDistance) {
+          closestDistance = distance;
           currentSectionId = section.id;
         }
       });
