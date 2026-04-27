@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Business storefront placeholder</title>
+  <desc id="desc">A simple placeholder image for the landing page hero.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#d8edf0"/>
+      <stop offset="1" stop-color="#f8efe0"/>
+    </linearGradient>
+    <linearGradient id="awning" x1="0" x2="1">
+      <stop offset="0" stop-color="#1f5d50"/>
+      <stop offset="1" stop-color="#d95f45"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#sky)"/>
+  <circle cx="1320" cy="170" r="92" fill="#d8a03d" opacity=".75"/>
+  <rect x="250" y="330" width="1100" height="520" rx="26" fill="#fffaf0"/>
+  <rect x="250" y="330" width="1100" height="112" rx="26" fill="url(#awning)"/>
+  <rect x="250" y="410" width="1100" height="32" fill="#1f5d50" opacity=".22"/>
+  <rect x="365" y="525" width="300" height="325" rx="18" fill="#1f5d50"/>
+  <rect x="735" y="525" width="455" height="210" rx="18" fill="#d8edf0"/>
+  <rect x="782" y="575" width="360" height="42" rx="21" fill="#1f5d50" opacity=".84"/>
+  <rect x="815" y="650" width="295" height="34" rx="17" fill="#d95f45" opacity=".78"/>
+  <circle cx="615" cy="690" r="18" fill="#d8a03d"/>
+  <rect x="0" y="850" width="1600" height="150" fill="#18201e" opacity=".18"/>
+</svg>
