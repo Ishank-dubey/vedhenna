@@ -102,20 +102,27 @@ export default function Home() {
       .filter(Boolean);
 
     const updateActiveSection = () => {
-      const currentSection = sections.find((section) => {
-        const rect = section.getBoundingClientRect();
-        return rect.top <= 150 && rect.bottom > 150;
+      const headerHeight = document.querySelector('.site-header')?.offsetHeight || 0;
+      const activationLine = headerHeight + 24;
+      let currentSectionId = sections[0]?.id || 'product';
+
+      sections.forEach((section) => {
+        if (section.getBoundingClientRect().top <= activationLine) {
+          currentSectionId = section.id;
+        }
       });
 
-      if (currentSection) {
-        setActiveSection(currentSection.id);
-      }
+      setActiveSection(currentSectionId);
     };
 
     updateActiveSection();
     window.addEventListener('scroll', updateActiveSection, { passive: true });
+    window.addEventListener('resize', updateActiveSection);
 
-    return () => window.removeEventListener('scroll', updateActiveSection);
+    return () => {
+      window.removeEventListener('scroll', updateActiveSection);
+      window.removeEventListener('resize', updateActiveSection);
+    };
   }, []);
 
   const handleSubmit = (event) => {
