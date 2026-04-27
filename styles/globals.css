@@ -18,6 +18,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 96px;
 }
 
 body {
@@ -80,15 +81,14 @@ a {
 
 .site-header nav a {
   border-radius: 8px;
-  padding: 8px 0;
-  transition: background 160ms ease, color 160ms ease, padding 160ms ease;
+  padding: 8px 10px;
+  transition: background 160ms ease, color 160ms ease;
 }
 
 .site-header nav a.active {
   background: rgba(31, 93, 80, 0.1);
   color: var(--forest);
   font-weight: 900;
-  padding: 8px 11px;
 }
 
 .nav-whatsapp {
@@ -269,6 +269,7 @@ h3 {
 .band,
 .contact {
   padding: 86px clamp(20px, 6vw, 84px);
+  scroll-margin-top: 110px;
 }
 
 .section-heading {
@@ -660,15 +661,29 @@ textarea {
 }
 
 @media (max-width: 820px) {
+  html {
+    scroll-padding-top: 150px;
+  }
+
   .site-header {
     align-items: flex-start;
     flex-direction: column;
     gap: 12px;
+    position: sticky;
   }
 
   .hero {
     min-height: 92vh;
-    padding-top: 156px;
+    padding-top: 56px;
+  }
+
+  .section,
+  .ingredients-section,
+  .rates-section,
+  .social-section,
+  .band,
+  .contact {
+    scroll-margin-top: 150px;
   }
 
   .hero-overlay {
