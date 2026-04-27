@@ -71,14 +71,12 @@ const business = {
   ],
   reviews: [
     {
-      quote:
-        'Fast, professional, and easy to work with. The booking process was simple and the result was exactly what we needed.',
-      name: 'Maya R.'
+      quote: 'Highly effective and natural.',
+      name: 'Akanksha'
     },
     {
-      quote:
-        'They explained everything clearly, arrived on time, and made the whole thing feel effortless.',
-      name: 'Daniel K.'
+      quote: 'Good job Preeti on putting together this formula.',
+      name: 'Bhawna'
     }
   ]
 };
@@ -297,9 +295,9 @@ export default function Home() {
           <h2>Natural ingredients, clear rates, and quick WhatsApp ordering.</h2>
         </div>
         <div className="feature-list">
-          <p><Icon>OK</Icon>Made with familiar herbs used in traditional hair care</p>
-          <p><Icon>OK</Icon>Single product page keeps ordering simple</p>
-          <p><Icon>OK</Icon>WhatsApp link makes customer questions quick to answer</p>
+          <p>Made with familiar herbs used in traditional hair care</p>
+          <p>Single product page keeps ordering simple</p>
+          <p>WhatsApp link makes customer questions quick to answer</p>
         </div>
       </section>
 
