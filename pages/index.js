@@ -1,4 +1,11 @@
-import { useState } from 'react';
+import Head from 'next/head';
+import { useEffect, useState } from 'react';
+
+const seo = {
+  title: 'Vedhenna | Natural Hair Care',
+  description:
+    'Vedhenna is a natural hair care product made with Amla, Reetha, Shikakai, Bhringraj, Kathha, and Hibiscus flowers for color, conditioning, growth support, and reduced hairfall'
+};
 
 const business = {
   name: 'Vedhenna',
@@ -8,11 +15,12 @@ const business = {
     'A natural hair care product crafted with traditional herbs for rich color, conditioning, and everyday hair wellness.',
   phone: '+91 98286 08796',
   whatsappNumber: '919828608796',
-  whatsappMessage: 'Hi, thank you for contacting Vedhenna, let us know how can I serve you today.',
-  email: 'hello@brightside.example',
+  whatsappMessage: 'I want to order Vedhenna - quantity, my address for delivery is',
+  email: 'preetisharma.0613@gmail.com',
+  instagramUrl: 'https://www.instagram.com/vedheenabypreeti?igsh=eWh6aWNvZ2JiNGhj',
   location: 'Serving your neighborhood',
   heroImage: '/business-image.svg',
-  ingredients: ['Amla', 'Reetha', 'Shikakai', 'Bhringraj', 'Kathha', 'Hibiscus flowers'],
+  ingredients: ['Amla', 'Reetha', 'Shikakai', 'Bhringraj', 'Kathha', 'Hibiscus flowers', 'Fenugreek seeds', 'Amaltas'],
   benefits: [
     {
       title: 'Hair growth support',
@@ -34,8 +42,8 @@ const business = {
   services: [
     {
       title: 'Natural blend',
-      description: 'Made with Amla, Reetha, Shikakai, Bhringraj, Kathha, and Hibiscus flowers.',
-      price: '6 herbs'
+      description: 'Made with Amla, Reetha, Shikakai, Bhringraj, Kathha, Hibiscus flowers, Fenugreek seeds, and Amaltas.',
+      price: '8 herbs'
     },
     {
       title: 'Hair color care',
@@ -57,7 +65,7 @@ const business = {
     }
   ],
   stats: [
-    ['6', 'botanical ingredients'],
+    ['8', 'botanical ingredients'],
     ['1', 'signature product'],
     ['4', 'key hair care benefits']
   ],
@@ -76,10 +84,41 @@ const business = {
 };
 
 const Icon = ({ children }) => <span className="icon" aria-hidden="true">{children}</span>;
+const navLinks = [
+  ['product', 'Product'],
+  ['ingredients', 'Ingredients'],
+  ['rates', 'Rates'],
+  ['reviews', 'Reviews'],
+  ['social', 'Social'],
+  ['contact', 'Contact']
+];
 
 export default function Home() {
   const [formStatus, setFormStatus] = useState('');
+  const [activeSection, setActiveSection] = useState('product');
   const whatsappLink = `https://wa.me/${business.whatsappNumber}?text=${encodeURIComponent(business.whatsappMessage)}`;
+
+  useEffect(() => {
+    const sections = navLinks
+      .map(([id]) => document.getElementById(id))
+      .filter(Boolean);
+
+    const updateActiveSection = () => {
+      const currentSection = sections.find((section) => {
+        const rect = section.getBoundingClientRect();
+        return rect.top <= 150 && rect.bottom > 150;
+      });
+
+      if (currentSection) {
+        setActiveSection(currentSection.id);
+      }
+    };
+
+    updateActiveSection();
+    window.addEventListener('scroll', updateActiveSection, { passive: true });
+
+    return () => window.removeEventListener('scroll', updateActiveSection);
+  }, []);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -102,18 +141,35 @@ export default function Home() {
   };
 
   return (
-    <main>
+    <>
+      <Head>
+        <title>{seo.title}</title>
+        <meta name="description" content={seo.description} />
+        <meta property="og:title" content={seo.title} />
+        <meta property="og:description" content={seo.description} />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={seo.title} />
+        <meta name="twitter:description" content={seo.description} />
+      </Head>
+      <main>
       <header className="site-header" aria-label="Primary navigation">
         <a className="brand" href="#top" aria-label={`${business.name} home`}>
           <span className="brand-mark">B</span>
           <span>{business.name}</span>
         </a>
         <nav>
-          <a href="#product">Product</a>
-          <a href="#ingredients">Ingredients</a>
-          <a href="#rates">Rates</a>
-          <a href="#reviews">Reviews</a>
-          <a href="#contact">Contact</a>
+          {navLinks.map(([id, label]) => (
+            <a
+              className={activeSection === id ? 'active' : ''}
+              href={`#${id}`}
+              key={id}
+              onClick={() => setActiveSection(id)}
+              aria-current={activeSection === id ? 'page' : undefined}
+            >
+              {label}
+            </a>
+          ))}
           <a className="nav-whatsapp" href={whatsappLink} target="_blank" rel="noreferrer">WhatsApp</a>
         </nav>
       </header>
@@ -175,7 +231,7 @@ export default function Home() {
       <section className="ingredients-section" id="ingredients">
         <div className="section-heading compact">
           <p className="eyebrow">Ingredients</p>
-          <h2>Made with six herbal ingredients.</h2>
+          <h2>Made with eight herbal ingredients.</h2>
         </div>
         <div className="ingredient-list" aria-label="Vedhenna ingredients">
           {business.ingredients.map((ingredient) => (
@@ -256,6 +312,26 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="social-section" id="social">
+        <div className="section-heading">
+          <p className="eyebrow">Social Media</p>
+          <h2>Follow Vedhenna on Instagram.</h2>
+          <p>
+            See updates, product posts, and customer-friendly hair care content from Vedhenna by Preeti.
+          </p>
+        </div>
+        <a className="social-card" href={business.instagramUrl} target="_blank" rel="noreferrer">
+          <span className="social-icon instagram-icon" aria-hidden="true">
+            <span className="instagram-lens" />
+            <span className="instagram-dot" />
+          </span>
+          <span>
+            <strong>@vedheenabypreeti</strong>
+            <small>Open Instagram page</small>
+          </span>
+        </a>
+      </section>
+
       <section className="contact" id="contact">
         <div>
           <p className="eyebrow">Contact</p>
@@ -284,7 +360,7 @@ export default function Home() {
             <textarea
               name="message"
               rows="5"
-              placeholder="I want to order Vedhenna - quantity, my address for delivery is"
+              placeholder={business.whatsappMessage}
               required
             />
           </label>
@@ -299,6 +375,7 @@ export default function Home() {
       <a className="floating-whatsapp" href={whatsappLink} target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp">
         WA
       </a>
-    </main>
+      </main>
+    </>
   );
 }

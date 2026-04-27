@@ -78,6 +78,19 @@ a {
   gap: clamp(12px, 2.6vw, 28px);
 }
 
+.site-header nav a {
+  border-radius: 8px;
+  padding: 8px 0;
+  transition: background 160ms ease, color 160ms ease, padding 160ms ease;
+}
+
+.site-header nav a.active {
+  background: rgba(31, 93, 80, 0.1);
+  color: var(--forest);
+  font-weight: 900;
+  padding: 8px 11px;
+}
+
 .nav-whatsapp {
   background: rgba(31, 168, 85, 0.1);
   border: 1px solid rgba(31, 168, 85, 0.28);
@@ -252,6 +265,7 @@ h3 {
 .section,
 .ingredients-section,
 .rates-section,
+.social-section,
 .band,
 .contact {
   padding: 86px clamp(20px, 6vw, 84px);
@@ -464,6 +478,91 @@ h3 {
   color: var(--ink);
   font-weight: 900;
   margin-top: 18px;
+}
+
+.social-section {
+  background: #fff8f6;
+}
+
+.social-card {
+  align-items: center;
+  background: var(--panel);
+  border: 1px solid rgba(217, 95, 69, 0.22);
+  border-radius: 8px;
+  box-shadow: 0 8px 28px rgba(24, 32, 30, 0.06);
+  display: inline-flex;
+  gap: 16px;
+  margin-top: 28px;
+  max-width: 420px;
+  padding: 18px;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+  width: 100%;
+}
+
+.social-card:hover {
+  box-shadow: var(--shadow);
+  transform: translateY(-2px);
+}
+
+.social-icon {
+  align-items: center;
+  border-radius: 8px;
+  color: white;
+  display: inline-flex;
+  flex: 0 0 auto;
+  font-weight: 900;
+  height: 48px;
+  justify-content: center;
+  position: relative;
+  width: 48px;
+}
+
+.instagram-icon {
+  background:
+    radial-gradient(circle at 30% 105%, #feda75 0 22%, #fa7e1e 38%, transparent 56%),
+    radial-gradient(circle at 80% 10%, #4f5bd5 0 18%, transparent 34%),
+    linear-gradient(135deg, #833ab4, #fd1d1d 48%, #fcb045);
+}
+
+.instagram-icon::before {
+  border: 3px solid white;
+  border-radius: 8px;
+  content: "";
+  height: 25px;
+  position: absolute;
+  width: 25px;
+}
+
+.instagram-lens {
+  border: 3px solid white;
+  border-radius: 999px;
+  height: 12px;
+  width: 12px;
+}
+
+.instagram-dot {
+  background: white;
+  border-radius: 999px;
+  height: 5px;
+  position: absolute;
+  right: 13px;
+  top: 13px;
+  width: 5px;
+}
+
+.social-card strong,
+.social-card small {
+  display: block;
+}
+
+.social-card strong {
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.social-card small {
+  color: var(--muted);
+  font-weight: 800;
 }
 
 .contact {
