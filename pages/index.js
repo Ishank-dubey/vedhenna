@@ -59,8 +59,8 @@ const business = {
   productRates: [
     {
       product: 'Vedhenna Hair Care',
-      unit: '1 pack',
-      rate: '399/month',
+      unit: '400ML',
+      rate: 'Rs 399',
       availability: 'Available today'
     }
   ],
@@ -227,7 +227,6 @@ export default function Home() {
         <div className="service-grid">
           {business.services.map((service) => (
             <article className="service-card" key={service.title}>
-              <div className="card-icon">OK</div>
               <h3>{service.title}</h3>
               <p>{service.description}</p>
               <span>{service.price}</span>

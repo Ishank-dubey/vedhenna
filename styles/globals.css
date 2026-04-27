@@ -282,6 +282,7 @@ h3 {
 .service-grid,
 .benefit-grid,
 .review-grid {
+  align-items: start;
   display: grid;
   gap: 18px;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -299,12 +300,10 @@ h3 {
 }
 
 .service-card {
-  min-height: 270px;
   padding: 28px;
 }
 
 .benefit-card {
-  min-height: 230px;
   padding: 24px;
 }
 
