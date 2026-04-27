@@ -125,14 +125,22 @@ export default function Home() {
     const formData = new FormData(event.currentTarget);
     const name = formData.get('name');
     const email = formData.get('email');
+    const address = formData.get('address');
     const message = formData.get('message');
-    const whatsappMessage = [
+    const whatsappLines = [
       business.whatsappMessage,
       '',
       `Name: ${name}`,
-      `Email: ${email}`,
-      `Message: ${message}`
-    ].join('\n');
+      `Email: ${email}`
+    ];
+
+    if (address) {
+      whatsappLines.push(`Address: ${address}`);
+    }
+
+    whatsappLines.push(`Message: ${message}`);
+
+    const whatsappMessage = whatsappLines.join('\n');
     const formWhatsappLink = `https://wa.me/${business.whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
     setFormStatus('Opening WhatsApp with your message...');
@@ -241,7 +249,6 @@ export default function Home() {
         <div className="benefit-grid">
           {business.benefits.map((benefit) => (
             <article className="benefit-card" key={benefit.title}>
-              <div className="card-icon">OK</div>
               <h3>{benefit.title}</h3>
               <p>{benefit.description}</p>
             </article>
@@ -354,6 +361,14 @@ export default function Home() {
           <label>
             Email
             <input type="email" name="email" placeholder="you@example.com" required />
+          </label>
+          <label>
+            Address <span className="optional-label">Optional</span>
+            <textarea
+              name="address"
+              rows="3"
+              placeholder="Delivery address, if you want to share it now"
+            />
           </label>
           <label>
             What can we help with?
