@@ -178,7 +178,7 @@ export default function Home() {
     if (isLikelyMobileDevice()) {
       setFormStatus('Opening WhatsApp with your message...');
       window.open(getContactWhatsappLink(contactDetails), '_blank', 'noopener,noreferrer');
-      event.currentTarget.reset();
+      form.reset();
       setIsSubmitting(false);
       return;
     }
@@ -200,7 +200,7 @@ export default function Home() {
         throw new Error(result.message || 'Message could not be sent right now.');
       }
 
-      setFormStatus('Thanks, your message has been sent. We will get back to you soon.');
+      setFormStatus('Email sent. We will get back soon.');
       form.reset();
     } catch (error) {
       setFormStatus('');
@@ -449,7 +449,11 @@ export default function Home() {
             <Icon>&gt;</Icon>
             {isSubmitting ? 'Sending...' : 'Send message'}
           </button>
-          {formStatus ? <p className="form-status" role="status">{formStatus}</p> : null}
+          {formStatus ? (
+            <p className={`form-status ${formStatus.includes('Email sent') ? 'success' : ''}`} role="status">
+              {formStatus}
+            </p>
+          ) : null}
           {formError ? (
             <div className="form-status error" role="alert">
               <p>{formError}</p>

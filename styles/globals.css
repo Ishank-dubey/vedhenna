@@ -631,11 +631,19 @@ textarea {
   border: 1px solid rgba(31, 168, 85, 0.22);
   border-radius: 8px;
   color: #146b38;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 800;
   line-height: 1.45;
   margin: 0;
-  padding: 12px 14px;
+  padding: 10px 12px;
+}
+
+.form-status.success {
+  background: #135f3a;
+  border-color: #135f3a;
+  color: white;
+  display: inline-flex;
+  width: fit-content;
 }
 
 .form-status.error {

@@ -4,6 +4,13 @@ const CONTACT_FROM_EMAIL = process.env.CONTACT_FROM_EMAIL || 'Vedhenna <onboardi
 const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
 const sanitize = (value) => String(value || '').trim();
+const escapeHtml = (value) =>
+  String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -15,6 +22,7 @@ export default async function handler(req, res) {
   const email = sanitize(req.body?.email);
   const address = sanitize(req.body?.address);
   const message = sanitize(req.body?.message);
+  const deliveryAddress = address || 'Not provided';
 
   if (!name || !email || !message) {
     return res.status(400).json({ message: 'Please enter your name, email, and message.' });
@@ -33,11 +41,19 @@ export default async function handler(req, res) {
     '',
     `Name: ${name}`,
     `Email: ${email}`,
-    address ? `Address: ${address}` : 'Address: Not provided',
+    `Delivery address: ${deliveryAddress}`,
     '',
     'Message:',
     message
   ].join('\n');
+
+  const html = `
+    <h2>New Vedhenna inquiry</h2>
+    <p><strong>Name:</strong> ${escapeHtml(name)}</p>
+    <p><strong>Email:</strong> ${escapeHtml(email)}</p>
+    <p><strong>Delivery address:</strong><br />${escapeHtml(deliveryAddress).replace(/\n/g, '<br />')}</p>
+    <p><strong>Message:</strong><br />${escapeHtml(message).replace(/\n/g, '<br />')}</p>
+  `;
 
   const resendResponse = await fetch('https://api.resend.com/emails', {
     method: 'POST',
@@ -50,7 +66,8 @@ export default async function handler(req, res) {
       to: CONTACT_TO_EMAIL,
       reply_to: email,
       subject: `New Vedhenna inquiry from ${name}`,
-      text
+      text,
+      html
     })
   });
 
