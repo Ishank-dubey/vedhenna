@@ -20,8 +20,10 @@ export default async function handler(req, res) {
 
   const name = sanitize(req.body?.name);
   const email = sanitize(req.body?.email);
+  const phone = sanitize(req.body?.phone);
   const address = sanitize(req.body?.address);
   const message = sanitize(req.body?.message);
+  const contactPhone = phone || 'Not provided';
   const deliveryAddress = address || 'Not provided';
 
   if (!name || !email || !message) {
@@ -41,6 +43,7 @@ export default async function handler(req, res) {
     '',
     `Name: ${name}`,
     `Email: ${email}`,
+    `Phone: ${contactPhone}`,
     `Delivery address: ${deliveryAddress}`,
     '',
     'Message:',
@@ -51,6 +54,7 @@ export default async function handler(req, res) {
     <h2>New Vedhenna inquiry</h2>
     <p><strong>Name:</strong> ${escapeHtml(name)}</p>
     <p><strong>Email:</strong> ${escapeHtml(email)}</p>
+    <p><strong>Phone:</strong> ${escapeHtml(contactPhone)}</p>
     <p><strong>Delivery address:</strong><br />${escapeHtml(deliveryAddress).replace(/\n/g, '<br />')}</p>
     <p><strong>Message:</strong><br />${escapeHtml(message).replace(/\n/g, '<br />')}</p>
   `;

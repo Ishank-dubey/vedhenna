@@ -110,13 +110,17 @@ export default function Home() {
   const whatsappLink = `https://wa.me/${business.whatsappNumber}?text=${encodeURIComponent(business.whatsappMessage)}`;
   const emailFallbackLink = `mailto:${business.email}?subject=${encodeURIComponent('Vedhenna inquiry')}&body=${encodeURIComponent(business.whatsappMessage)}`;
 
-  const getContactWhatsappLink = ({ name, email, address, message }) => {
+  const getContactWhatsappLink = ({ name, email, phone, address, message }) => {
     const whatsappLines = [
       business.whatsappMessage,
       '',
       `Name: ${name}`,
       `Email: ${email}`
     ];
+
+    if (phone) {
+      whatsappLines.push(`Phone: ${phone}`);
+    }
 
     if (address) {
       whatsappLines.push(`Address: ${address}`);
@@ -168,9 +172,10 @@ export default function Home() {
     const formData = new FormData(form);
     const name = formData.get('name');
     const email = formData.get('email');
+    const phone = formData.get('phone');
     const address = formData.get('address');
     const message = formData.get('message');
-    const contactDetails = { name, email, address, message };
+    const contactDetails = { name, email, phone, address, message };
 
     setFormError('');
     setIsSubmitting(true);
@@ -427,6 +432,10 @@ export default function Home() {
           <label>
             Email
             <input type="email" name="email" placeholder="you@example.com" required />
+          </label>
+          <label>
+            Phone <span className="optional-label">Optional</span>
+            <input type="tel" name="phone" placeholder="+91 98765 43210" />
           </label>
           <label>
             Address <span className="optional-label">Optional</span>
