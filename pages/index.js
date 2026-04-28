@@ -164,7 +164,8 @@ export default function Home() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const formData = new FormData(event.currentTarget);
+    const form = event.currentTarget;
+    const formData = new FormData(form);
     const name = formData.get('name');
     const email = formData.get('email');
     const address = formData.get('address');
@@ -200,7 +201,7 @@ export default function Home() {
       }
 
       setFormStatus('Thanks, your message has been sent. We will get back to you soon.');
-      event.currentTarget.reset();
+      form.reset();
     } catch (error) {
       setFormStatus('');
       setFormError(`${error.message} You can still contact us by WhatsApp, phone, or email.`);
