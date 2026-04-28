@@ -19,7 +19,7 @@ const business = {
   email: 'preetisharma.0613@gmail.com',
   instagramUrl: 'https://www.instagram.com/vedheenabypreeti?igsh=eWh6aWNvZ2JiNGhj',
   location: 'Serving your neighborhood',
-  heroImage: '/business-image.svg',
+  heroImage: '/vedhenna-hero.jpg',
   ingredients: ['Amla', 'Reetha', 'Shikakai', 'Bhringraj', 'Kathha', 'Hibiscus flowers', 'Fenugreek seeds', 'Amaltas'],
   benefits: [
     {
