@@ -20,7 +20,10 @@ const business = {
   whatsappMessage: 'I want to order Vedhenna - quantity, my address for delivery is',
   email: 'preetisharma.0613@gmail.com',
   instagramUrl: 'https://www.instagram.com/vedheenabypreeti?igsh=eWh6aWNvZ2JiNGhj',
-  location: 'Serving your neighborhood',
+  location: 'Located in Hyderabad, Telangana, India',
+  city: 'Hyderabad',
+  region: 'Telangana',
+  country: 'India',
   heroImage: '/vedhenna-hero.jpg',
   ingredients: ['Amla', 'Reetha', 'Shikakai', 'Bhringraj', 'Kathha', 'Hibiscus flowers', 'Fenugreek seeds', 'Amaltas'],
   benefits: [
@@ -82,6 +85,28 @@ const business = {
       name: 'Bhawna'
     }
   ]
+};
+
+const localBusinessJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'HealthAndBeautyBusiness',
+  name: business.name,
+  url: seo.url,
+  image: `${seo.url.replace(/\/$/, '')}${seo.socialImage}`,
+  description: seo.description,
+  email: business.email,
+  telephone: business.phone,
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: business.city,
+    addressRegion: business.region,
+    addressCountry: business.country
+  },
+  areaServed: {
+    '@type': 'City',
+    name: business.city
+  },
+  sameAs: [business.instagramUrl]
 };
 
 const Icon = ({ children }) => <span className="icon" aria-hidden="true">{children}</span>;
@@ -263,6 +288,12 @@ export default function Home() {
         <meta name="twitter:title" content={seo.title} />
         <meta name="twitter:description" content={seo.description} />
         <meta name="twitter:image" content={socialImageUrl} />
+        <meta name="geo.region" content="IN-TG" />
+        <meta name="geo.placename" content="Hyderabad" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
+        />
       </Head>
       <main>
       <header className="site-header" aria-label="Primary navigation">
