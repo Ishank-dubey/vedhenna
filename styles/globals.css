@@ -751,7 +751,7 @@ textarea {
     min-height: auto;
   }
 
-  .desktop-only-field {
+  .contact-form .desktop-only-field {
     display: none;
   }
 }
