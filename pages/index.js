@@ -60,7 +60,7 @@ const business = {
     {
       product: 'Vedhenna Hair Care',
       unit: '400ML',
-      rate: 'Rs 399',
+      rate: 'Rs 299',
       availability: 'Available today'
     }
   ],
