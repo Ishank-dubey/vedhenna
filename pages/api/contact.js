@@ -55,6 +55,12 @@ export default async function handler(req, res) {
   });
 
   if (!resendResponse.ok) {
+    const resendError = await resendResponse.text();
+    console.error('Resend email failed', {
+      status: resendResponse.status,
+      body: resendError
+    });
+
     return res.status(502).json({ message: 'The message could not be sent right now.' });
   }
 

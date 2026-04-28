@@ -92,6 +92,14 @@ const navLinks = [
   ['contact', 'Contact']
 ];
 
+const isLikelyMobileDevice = () => {
+  if (typeof navigator === 'undefined') {
+    return false;
+  }
+
+  return /Android|iPhone|iPad|iPod|IEMobile|Opera Mini/i.test(navigator.userAgent);
+};
+
 export default function Home() {
   const [formStatus, setFormStatus] = useState('');
   const [formError, setFormError] = useState('');
@@ -101,6 +109,23 @@ export default function Home() {
   const socialImageUrl = siteUrl ? `${siteUrl}${seo.socialImage}` : seo.socialImage;
   const whatsappLink = `https://wa.me/${business.whatsappNumber}?text=${encodeURIComponent(business.whatsappMessage)}`;
   const emailFallbackLink = `mailto:${business.email}?subject=${encodeURIComponent('Vedhenna inquiry')}&body=${encodeURIComponent(business.whatsappMessage)}`;
+
+  const getContactWhatsappLink = ({ name, email, address, message }) => {
+    const whatsappLines = [
+      business.whatsappMessage,
+      '',
+      `Name: ${name}`,
+      `Email: ${email}`
+    ];
+
+    if (address) {
+      whatsappLines.push(`Address: ${address}`);
+    }
+
+    whatsappLines.push(`Message: ${message}`);
+
+    return `https://wa.me/${business.whatsappNumber}?text=${encodeURIComponent(whatsappLines.join('\n'))}`;
+  };
 
   useEffect(() => {
     const sections = navLinks
@@ -147,8 +172,17 @@ export default function Home() {
     const contactDetails = { name, email, address, message };
 
     setFormError('');
-    setFormStatus('Sending your message...');
     setIsSubmitting(true);
+
+    if (isLikelyMobileDevice()) {
+      setFormStatus('Opening WhatsApp with your message...');
+      window.open(getContactWhatsappLink(contactDetails), '_blank', 'noopener,noreferrer');
+      event.currentTarget.reset();
+      setIsSubmitting(false);
+      return;
+    }
+
+    setFormStatus('Sending your message...');
 
     try {
       const response = await fetch('/api/contact', {
@@ -375,7 +409,7 @@ export default function Home() {
           <p className="eyebrow">Contact</p>
           <h2>Send your Vedhenna inquiry.</h2>
           <p>
-            Share your name, email, and question. The form sends your inquiry directly, with WhatsApp, phone, and email available as backups.
+            Share your name, email, and question. Desktop users can send directly from the site, while mobile users can continue quickly through WhatsApp.
           </p>
           <div className="contact-options">
             <a className="whatsapp-link" href={whatsappLink} target="_blank" rel="noreferrer">Chat on WhatsApp</a>
