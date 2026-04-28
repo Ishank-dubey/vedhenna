@@ -392,7 +392,7 @@ export default function Home() {
       <section className="rates-section" id="rates">
         <div className="section-heading">
           <p className="eyebrow">Product Price</p>
-          <h2>Today&apos;s Vedhenna rate.</h2>
+          <h2>Today&apos;s Vedhenna price.</h2>
           <p>
             Vedhenna is available at an introductory price for a limited time, with the usual price shown for clarity.
           </p>
