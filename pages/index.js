@@ -94,10 +94,13 @@ const navLinks = [
 
 export default function Home() {
   const [formStatus, setFormStatus] = useState('');
+  const [formError, setFormError] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [activeSection, setActiveSection] = useState('product');
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || '';
   const socialImageUrl = siteUrl ? `${siteUrl}${seo.socialImage}` : seo.socialImage;
   const whatsappLink = `https://wa.me/${business.whatsappNumber}?text=${encodeURIComponent(business.whatsappMessage)}`;
+  const emailFallbackLink = `mailto:${business.email}?subject=${encodeURIComponent('Vedhenna inquiry')}&body=${encodeURIComponent(business.whatsappMessage)}`;
 
   useEffect(() => {
     const sections = navLinks
@@ -134,32 +137,42 @@ export default function Home() {
     };
   }, []);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
     const name = formData.get('name');
     const email = formData.get('email');
     const address = formData.get('address');
     const message = formData.get('message');
-    const whatsappLines = [
-      business.whatsappMessage,
-      '',
-      `Name: ${name}`,
-      `Email: ${email}`
-    ];
+    const contactDetails = { name, email, address, message };
 
-    if (address) {
-      whatsappLines.push(`Address: ${address}`);
+    setFormError('');
+    setFormStatus('Sending your message...');
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(contactDetails)
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.message || 'Message could not be sent right now.');
+      }
+
+      setFormStatus('Thanks, your message has been sent. We will get back to you soon.');
+      event.currentTarget.reset();
+    } catch (error) {
+      setFormStatus('');
+      setFormError(`${error.message} You can still contact us by WhatsApp, phone, or email.`);
+    } finally {
+      setIsSubmitting(false);
     }
-
-    whatsappLines.push(`Message: ${message}`);
-
-    const whatsappMessage = whatsappLines.join('\n');
-    const formWhatsappLink = `https://wa.me/${business.whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
-
-    setFormStatus('Opening WhatsApp with your message...');
-    window.open(formWhatsappLink, '_blank', 'noopener,noreferrer');
-    event.currentTarget.reset();
   };
 
   return (
@@ -360,9 +373,9 @@ export default function Home() {
       <section className="contact" id="contact">
         <div>
           <p className="eyebrow">Contact</p>
-          <h2>Send your Vedhenna inquiry on WhatsApp.</h2>
+          <h2>Send your Vedhenna inquiry.</h2>
           <p>
-            Share your name, email, and question. The form will open WhatsApp with your message ready to send.
+            Share your name, email, and question. The form sends your inquiry directly, with WhatsApp, phone, and email available as backups.
           </p>
           <div className="contact-options">
             <a className="whatsapp-link" href={whatsappLink} target="_blank" rel="noreferrer">Chat on WhatsApp</a>
@@ -397,11 +410,20 @@ export default function Home() {
               required
             />
           </label>
-          <button className="button primary" type="submit">
+          <button className="button primary" type="submit" disabled={isSubmitting}>
             <Icon>&gt;</Icon>
-            Open WhatsApp
+            {isSubmitting ? 'Sending...' : 'Send message'}
           </button>
           {formStatus ? <p className="form-status" role="status">{formStatus}</p> : null}
+          {formError ? (
+            <div className="form-status error" role="alert">
+              <p>{formError}</p>
+              <div className="form-fallbacks">
+                <a href={whatsappLink} target="_blank" rel="noreferrer">WhatsApp</a>
+                <a href={emailFallbackLink}>Email</a>
+              </div>
+            </div>
+          ) : null}
         </form>
       </section>
 
