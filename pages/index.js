@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 const seo = {
   title: 'Vedhenna | Natural Hair Care',
   description:
-    'Vedhenna is a natural hair care product made with Amla, Reetha, Shikakai, Bhringraj, Kathha, and Hibiscus flowers for color, conditioning, growth support, and reduced hairfall',
+    'Vedhenna natural hair care with Amla, Reetha, Shikakai, Bhringraj, Kathha, Hibiscus, Fenugreek and Amaltas for color, conditioning and hairfall care.',
   url: 'https://www.vedhenna.com/',
   socialImage: '/vedhenna-social.jpg'
 };
