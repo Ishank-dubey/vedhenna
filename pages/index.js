@@ -4,7 +4,8 @@ import { useEffect, useState } from 'react';
 const seo = {
   title: 'Vedhenna | Natural Hair Care',
   description:
-    'Vedhenna is a natural hair care product made with Amla, Reetha, Shikakai, Bhringraj, Kathha, and Hibiscus flowers for color, conditioning, growth support, and reduced hairfall'
+    'Vedhenna is a natural hair care product made with Amla, Reetha, Shikakai, Bhringraj, Kathha, and Hibiscus flowers for color, conditioning, growth support, and reduced hairfall',
+  socialImage: '/vedhenna-social.jpg'
 };
 
 const business = {
@@ -94,6 +95,8 @@ const navLinks = [
 export default function Home() {
   const [formStatus, setFormStatus] = useState('');
   const [activeSection, setActiveSection] = useState('product');
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || '';
+  const socialImageUrl = siteUrl ? `${siteUrl}${seo.socialImage}` : seo.socialImage;
   const whatsappLink = `https://wa.me/${business.whatsappNumber}?text=${encodeURIComponent(business.whatsappMessage)}`;
 
   useEffect(() => {
@@ -164,12 +167,18 @@ export default function Home() {
       <Head>
         <title>{seo.title}</title>
         <meta name="description" content={seo.description} />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <meta property="og:title" content={seo.title} />
         <meta property="og:description" content={seo.description} />
         <meta property="og:type" content="website" />
+        <meta property="og:image" content={socialImageUrl} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={seo.title} />
         <meta name="twitter:description" content={seo.description} />
+        <meta name="twitter:image" content={socialImageUrl} />
       </Head>
       <main>
       <header className="site-header" aria-label="Primary navigation">
