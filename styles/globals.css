@@ -62,17 +62,6 @@ a {
   gap: 10px;
 }
 
-.brand-mark {
-  align-items: center;
-  background: var(--forest);
-  border-radius: 8px;
-  color: white;
-  display: inline-flex;
-  height: 34px;
-  justify-content: center;
-  width: 34px;
-}
-
 .site-header nav {
   color: var(--muted);
   font-size: 0.92rem;

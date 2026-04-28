@@ -174,7 +174,6 @@ export default function Home() {
       <main>
       <header className="site-header" aria-label="Primary navigation">
         <a className="brand" href="#top" aria-label={`${business.name} home`}>
-          <span className="brand-mark">B</span>
           <span>{business.name}</span>
         </a>
         <nav>
