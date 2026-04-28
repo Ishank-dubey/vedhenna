@@ -5,6 +5,7 @@ const seo = {
   title: 'Vedhenna | Natural Hair Care',
   description:
     'Vedhenna is a natural hair care product made with Amla, Reetha, Shikakai, Bhringraj, Kathha, and Hibiscus flowers for color, conditioning, growth support, and reduced hairfall',
+  url: 'https://www.vedhenna.com/',
   socialImage: '/vedhenna-social.jpg'
 };
 
@@ -248,10 +249,12 @@ export default function Home() {
       <Head>
         <title>{seo.title}</title>
         <meta name="description" content={seo.description} />
+        <link rel="canonical" href={seo.url} />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <meta property="og:title" content={seo.title} />
         <meta property="og:description" content={seo.description} />
+        <meta property="og:url" content={seo.url} />
         <meta property="og:type" content="website" />
         <meta property="og:image" content={socialImageUrl} />
         <meta property="og:image:width" content="1200" />
