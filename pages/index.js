@@ -113,7 +113,7 @@ const Icon = ({ children }) => <span className="icon" aria-hidden="true">{childr
 const navLinks = [
   ['product', 'Product'],
   ['ingredients', 'Ingredients'],
-  ['rates', 'Rates'],
+  ['rates', 'Price'],
   ['reviews', 'Reviews'],
   ['social', 'Social'],
   ['contact', 'Contact']
@@ -391,7 +391,7 @@ export default function Home() {
 
       <section className="rates-section" id="rates">
         <div className="section-heading">
-          <p className="eyebrow">Product Rates</p>
+          <p className="eyebrow">Product Price</p>
           <h2>Today&apos;s Vedhenna rate.</h2>
           <p>
             Vedhenna is available at an introductory price for a limited time, with the usual price shown for clarity.
