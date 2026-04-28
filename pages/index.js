@@ -103,12 +103,35 @@ const isLikelyMobileDevice = () => {
 export default function Home() {
   const [formStatus, setFormStatus] = useState('');
   const [formError, setFormError] = useState('');
+  const [fallbackEmailLink, setFallbackEmailLink] = useState('');
+  const [showMobileFallback, setShowMobileFallback] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [activeSection, setActiveSection] = useState('product');
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || '';
   const socialImageUrl = siteUrl ? `${siteUrl}${seo.socialImage}` : seo.socialImage;
   const whatsappLink = `https://wa.me/${business.whatsappNumber}?text=${encodeURIComponent(business.whatsappMessage)}`;
   const emailFallbackLink = `mailto:${business.email}?subject=${encodeURIComponent('Vedhenna inquiry')}&body=${encodeURIComponent(business.whatsappMessage)}`;
+
+  const getContactEmailLink = ({ name, email, phone, address, message }) => {
+    const emailLines = [
+      business.whatsappMessage,
+      '',
+      `Name: ${name}`,
+      `Email: ${email}`
+    ];
+
+    if (phone) {
+      emailLines.push(`Phone: ${phone}`);
+    }
+
+    if (address) {
+      emailLines.push(`Delivery address: ${address}`);
+    }
+
+    emailLines.push('', 'Message:', message);
+
+    return `mailto:${business.email}?subject=${encodeURIComponent('Vedhenna inquiry')}&body=${encodeURIComponent(emailLines.join('\n'))}`;
+  };
 
   const getContactWhatsappLink = ({ name, email, phone, address, message }) => {
     const whatsappLines = [
@@ -178,10 +201,13 @@ export default function Home() {
     const contactDetails = { name, email, phone, address, message };
 
     setFormError('');
+    setShowMobileFallback(false);
     setIsSubmitting(true);
 
     if (isLikelyMobileDevice()) {
-      setFormStatus('Opening WhatsApp with your message...');
+      setFallbackEmailLink(getContactEmailLink(contactDetails));
+      setFormStatus('If WhatsApp did not open, use Email or Call.');
+      setShowMobileFallback(true);
       window.open(getContactWhatsappLink(contactDetails), '_blank', 'noopener,noreferrer');
       form.reset();
       setIsSubmitting(false);
@@ -209,6 +235,7 @@ export default function Home() {
       form.reset();
     } catch (error) {
       setFormStatus('');
+      setFallbackEmailLink(getContactEmailLink(contactDetails));
       setFormError(`${error.message} You can still contact us by WhatsApp, phone, or email.`);
     } finally {
       setIsSubmitting(false);
@@ -463,12 +490,18 @@ export default function Home() {
               {formStatus}
             </p>
           ) : null}
+          {showMobileFallback ? (
+            <div className="form-fallbacks mobile-fallback" aria-label="Contact fallback options">
+              <a href={fallbackEmailLink || emailFallbackLink}>Email</a>
+              <a href={`tel:${business.phone.replace(/[^0-9]/g, '')}`}>Call</a>
+            </div>
+          ) : null}
           {formError ? (
             <div className="form-status error" role="alert">
               <p>{formError}</p>
               <div className="form-fallbacks">
                 <a href={whatsappLink} target="_blank" rel="noreferrer">WhatsApp</a>
-                <a href={emailFallbackLink}>Email</a>
+                <a href={fallbackEmailLink || emailFallbackLink}>Email</a>
               </div>
             </div>
           ) : null}

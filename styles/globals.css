@@ -673,6 +673,16 @@ textarea {
   padding: 8px 11px;
 }
 
+.mobile-fallback {
+  margin-top: -4px;
+}
+
+.mobile-fallback a {
+  background: rgba(19, 95, 58, 0.12);
+  border-color: rgba(19, 95, 58, 0.24);
+  color: #135f3a;
+}
+
 .floating-whatsapp {
   align-items: center;
   background: var(--whatsapp);
