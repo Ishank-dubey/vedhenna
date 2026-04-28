@@ -61,8 +61,9 @@ const business = {
     {
       product: 'Vedhenna Hair Care',
       unit: '400ML',
-      rate: 'Rs 299',
-      availability: 'Available today'
+      usualRate: 'Rs 499',
+      introductoryRate: 'Rs 299',
+      availability: 'Introductory offer'
     }
   ],
   stats: [
@@ -359,7 +360,7 @@ export default function Home() {
           <p className="eyebrow">Product Rates</p>
           <h2>Today&apos;s Vedhenna rate.</h2>
           <p>
-            Keep the current price visible for customers. This table is ready for more rows whenever you add more products.
+            Vedhenna is available at an introductory price for a limited time, with the usual price shown for clarity.
           </p>
         </div>
         <div className="rates-table-wrap">
@@ -369,7 +370,8 @@ export default function Home() {
               <tr>
                 <th scope="col">Product</th>
                 <th scope="col">Unit</th>
-                <th scope="col">Rate</th>
+                <th scope="col">Usual Price</th>
+                <th scope="col">Introductory Price</th>
                 <th scope="col">Status</th>
               </tr>
             </thead>
@@ -378,7 +380,8 @@ export default function Home() {
                 <tr key={item.product}>
                   <th scope="row">{item.product}</th>
                   <td>{item.unit}</td>
-                  <td className="rate-value">{item.rate}</td>
+                  <td className="usual-rate">{item.usualRate}</td>
+                  <td className="rate-value">{item.introductoryRate}</td>
                   <td><span className="rate-status">{item.availability}</span></td>
                 </tr>
               ))}
@@ -386,7 +389,7 @@ export default function Home() {
           </table>
         </div>
         <p className="rates-note">
-          Delivery within Hyderabad is handled as per the listed rate. For delivery addresses outside Hyderabad, an additional delivery charge may apply.
+          The introductory price is Rs 299 for 400ML; the usual price is Rs 499. Delivery within Hyderabad is handled as per the listed rate. For delivery addresses outside Hyderabad, an additional delivery charge may apply.
         </p>
       </section>
 
