@@ -433,7 +433,7 @@ export default function Home() {
             Email
             <input type="email" name="email" placeholder="you@example.com" required />
           </label>
-          <label>
+          <label className="desktop-only-field">
             Phone <span className="optional-label">Optional</span>
             <input type="tel" name="phone" placeholder="+91 98765 43210" />
           </label>

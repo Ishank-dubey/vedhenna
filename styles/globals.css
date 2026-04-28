@@ -732,6 +732,10 @@ textarea {
   .service-card {
     min-height: auto;
   }
+
+  .desktop-only-field {
+    display: none;
+  }
 }
 
 @media (max-width: 520px) {
