@@ -691,6 +691,26 @@ textarea {
   color: #135f3a;
 }
 
+.site-footer {
+  background: #111715;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.72);
+  display: grid;
+  gap: 6px;
+  padding: 24px clamp(20px, 6vw, 84px) 32px;
+}
+
+.site-footer p {
+  font-size: 0.92rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.site-footer p:first-child {
+  color: white;
+  font-weight: 900;
+}
+
 .floating-whatsapp {
   align-items: center;
   background: var(--whatsapp);

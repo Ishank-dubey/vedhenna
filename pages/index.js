@@ -545,6 +545,11 @@ export default function Home() {
         </form>
       </section>
 
+      <footer className="site-footer">
+        <p>&copy; {new Date().getFullYear()} {business.name}. All rights reserved.</p>
+        <p>We are a small business, and we love the care and craft we put into our work.</p>
+      </footer>
+
       <a className="floating-whatsapp" href={whatsappLink} target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp">
         WA
       </a>
