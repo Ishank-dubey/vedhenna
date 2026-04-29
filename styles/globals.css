@@ -711,23 +711,6 @@ textarea {
   font-weight: 900;
 }
 
-.floating-whatsapp {
-  align-items: center;
-  background: var(--whatsapp);
-  border-radius: 999px;
-  bottom: 22px;
-  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.24);
-  color: white;
-  display: flex;
-  font-weight: 900;
-  height: 58px;
-  justify-content: center;
-  position: fixed;
-  right: 22px;
-  width: 58px;
-  z-index: 20;
-}
-
 @media (max-width: 820px) {
   html {
     scroll-padding-top: 150px;
@@ -801,10 +784,4 @@ textarea {
     padding: 16px;
   }
 
-  .floating-whatsapp {
-    bottom: 16px;
-    height: 52px;
-    right: 16px;
-    width: 52px;
-  }
 }

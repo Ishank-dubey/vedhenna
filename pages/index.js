@@ -548,9 +548,6 @@ export default function Home() {
         <p>We are a small business, and we love the care and craft we put into our work.</p>
       </footer>
 
-      <a className="floating-whatsapp" href={whatsappLink} target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp">
-        WA
-      </a>
       </main>
     </>
   );
