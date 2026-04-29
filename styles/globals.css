@@ -52,7 +52,7 @@ a {
 .brand,
 .site-header nav,
 .hero-actions,
-.contact-options {
+.contact-details-list {
   align-items: center;
   display: flex;
 }
@@ -262,7 +262,8 @@ h3 {
 .rates-section,
 .social-section,
 .band,
-.contact {
+.contact,
+.contact-details {
   padding: 86px clamp(20px, 6vw, 84px);
   scroll-margin-top: 110px;
 }
@@ -582,19 +583,6 @@ h3 {
   max-width: 580px;
 }
 
-.contact-options {
-  align-items: flex-start;
-  color: rgba(255, 255, 255, 0.88);
-  flex-direction: column;
-  gap: 12px;
-  margin-top: 28px;
-}
-
-.contact-options a {
-  color: white;
-  font-weight: 800;
-}
-
 .contact-form {
   color: var(--ink);
   display: grid;
@@ -709,6 +697,29 @@ textarea {
   color: #135f3a;
 }
 
+.contact-details {
+  background: #ecf4ef;
+  color: var(--ink);
+  padding-bottom: 42px;
+  padding-top: 42px;
+}
+
+.contact-details-list {
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 14px 18px;
+}
+
+.contact-details-list a,
+.contact-details-list span {
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(31, 93, 80, 0.14);
+  border-radius: 8px;
+  color: var(--forest);
+  font-weight: 900;
+  padding: 12px 14px;
+}
+
 .site-footer {
   background: #111715;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
@@ -751,7 +762,8 @@ textarea {
   .rates-section,
   .social-section,
   .band,
-  .contact {
+  .contact,
+  .contact-details {
     scroll-margin-top: 150px;
   }
 

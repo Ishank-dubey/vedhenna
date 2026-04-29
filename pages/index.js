@@ -116,7 +116,7 @@ const navLinks = [
   ['rates', 'Price'],
   ['reviews', 'Reviews'],
   ['social', 'Social'],
-  ['contact', 'Contact']
+  ['contact', 'Order']
 ];
 
 const isLikelyMobileDevice = () => {
@@ -485,16 +485,11 @@ export default function Home() {
 
       <section className="contact" id="contact">
         <div>
-          <p className="eyebrow">Contact</p>
+          <p className="eyebrow">Order</p>
           <h2>Start your Vedhenna order.</h2>
           <p>
             Share your details and delivery address to initiate your order. We will review it and get back to you soon.
           </p>
-          <div className="contact-options">
-            <a href={`tel:${business.phone.replace(/[^0-9]/g, '')}`}>{business.phone}</a>
-            <a href={`mailto:${business.email}`}>{business.email}</a>
-            <span>{business.location}</span>
-          </div>
         </div>
         <form className="contact-form" name="contact" onSubmit={handleSubmit}>
           <label id="order-name-target" htmlFor="order-name">
@@ -559,6 +554,15 @@ export default function Home() {
             </div>
           ) : null}
         </form>
+      </section>
+
+      <section className="contact-details" aria-label="Contact details">
+        <p className="eyebrow">Contact Details</p>
+        <div className="contact-details-list">
+          <a href={`tel:${business.phone.replace(/[^0-9]/g, '')}`}>{business.phone}</a>
+          <a href={`mailto:${business.email}`}>{business.email}</a>
+          <span>{business.location}</span>
+        </div>
       </section>
 
       <footer className="site-footer">
