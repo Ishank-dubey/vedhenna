@@ -165,15 +165,12 @@ export default function Home() {
       business.whatsappMessage,
       '',
       `Name: ${name}`,
-      `Email: ${email}`
+      `Email: ${email}`,
+      `Delivery address: ${address}`
     ];
 
     if (phone) {
       whatsappLines.push(`Phone: ${phone}`);
-    }
-
-    if (address) {
-      whatsappLines.push(`Address: ${address}`);
     }
 
     whatsappLines.push(`Message: ${message}`);
@@ -479,7 +476,7 @@ export default function Home() {
           <p className="eyebrow">Contact</p>
           <h2>Start your Vedhenna order.</h2>
           <p>
-            Use this section to initiate an order. Mobile users can continue through WhatsApp, while desktop and laptop users can send the email form directly from the site.
+            Share your details and delivery address to initiate your order. We will review it and get back to you soon.
           </p>
           <div className="contact-options">
             <a className="whatsapp-link" href={whatsappLink} target="_blank" rel="noreferrer">Chat on WhatsApp</a>
