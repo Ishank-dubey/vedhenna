@@ -343,6 +343,25 @@ h3 {
   padding: 12px 16px;
 }
 
+.how-to-apply {
+  background: var(--panel);
+  border: 1px solid rgba(31, 93, 80, 0.18);
+  border-radius: 8px;
+  margin-top: 28px;
+  max-width: 680px;
+  padding: 22px 24px;
+}
+
+.how-to-apply h3 {
+  color: var(--forest);
+}
+
+.how-to-apply p {
+  color: var(--muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
 .benefit-grid {
   grid-template-columns: repeat(4, minmax(0, 1fr));
   margin-top: 34px;
