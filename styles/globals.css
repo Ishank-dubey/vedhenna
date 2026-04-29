@@ -630,6 +630,10 @@ textarea {
   width: 100%;
 }
 
+#order-name {
+  scroll-margin-top: 130px;
+}
+
 .field-focus-cue {
   animation: fieldFocusCue 1.8s ease;
   border-color: var(--coral);
@@ -774,6 +778,10 @@ textarea {
 
   .contact-form .desktop-only-field {
     display: none;
+  }
+
+  #order-name {
+    scroll-margin-top: 170px;
   }
 }
 
