@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
+import { ingredientPages } from '../data/ingredients';
 
 const seo = {
   title: 'Vedhenna | Natural Hair Care',
@@ -25,7 +26,7 @@ const business = {
   region: 'Telangana',
   country: 'India',
   heroImage: '/vedhenna-hero.jpg',
-  ingredients: ['Amla', 'Reetha', 'Shikakai', 'Bhringraj', 'Kathha', 'Hibiscus flowers', 'Fenugreek seeds', 'Amaltas'],
+  ingredients: ingredientPages,
   benefits: [
     {
       title: 'Hair growth support',
@@ -384,7 +385,9 @@ export default function Home() {
         </div>
         <div className="ingredient-list" aria-label="Vedhenna ingredients">
           {business.ingredients.map((ingredient) => (
-            <span className="ingredient-chip" key={ingredient}>{ingredient}</span>
+            <a className="ingredient-chip" href={`/ingredients/${ingredient.slug}`} key={ingredient.slug}>
+              {ingredient.name}
+            </a>
           ))}
         </div>
         <div className="how-to-apply">
