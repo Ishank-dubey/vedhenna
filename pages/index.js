@@ -313,7 +313,7 @@ export default function Home() {
           {navLinks.map(([id, label]) => (
             <a
               className={activeSection === id ? 'active' : ''}
-              href={id === 'contact' ? '#order-name' : `#${id}`}
+              href={id === 'contact' ? '#order-name-target' : `#${id}`}
               key={id}
               onClick={() => setActiveSection(id)}
               aria-current={activeSection === id ? 'page' : undefined}
@@ -338,7 +338,7 @@ export default function Home() {
           <p className="hero-title">{business.headline}</p>
           <p className="hero-copy">{business.intro}</p>
           <div className="hero-actions">
-            <a className="button whatsapp" href="#order-name" onClick={() => setActiveSection('contact')}>
+            <a className="button whatsapp" href="#order-name-target" onClick={() => setActiveSection('contact')}>
               <Icon>&gt;</Icon>
               Order now
             </a>
@@ -498,7 +498,7 @@ export default function Home() {
           </div>
         </div>
         <form className="contact-form" name="contact" onSubmit={handleSubmit}>
-          <label htmlFor="order-name">
+          <label id="order-name-target" htmlFor="order-name">
             Name
             <input
               className={highlightNameField ? 'field-focus-cue' : ''}

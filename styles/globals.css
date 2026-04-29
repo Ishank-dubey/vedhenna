@@ -630,7 +630,7 @@ textarea {
   width: 100%;
 }
 
-#order-name {
+#order-name-target {
   scroll-margin-top: 130px;
 }
 
@@ -780,7 +780,7 @@ textarea {
     display: none;
   }
 
-  #order-name {
+  #order-name-target {
     scroll-margin-top: 170px;
   }
 }
