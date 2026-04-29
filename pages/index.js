@@ -502,11 +502,12 @@ export default function Home() {
             <input type="tel" name="phone" placeholder="+91 98765 43210" />
           </label>
           <label>
-            Address <span className="optional-label">Optional</span>
+            Address
             <textarea
               name="address"
               rows="3"
-              placeholder="Delivery address, if you want to share it now"
+              placeholder="Delivery address"
+              required
             />
           </label>
           <label>

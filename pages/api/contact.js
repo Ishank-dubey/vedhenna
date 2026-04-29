@@ -24,10 +24,10 @@ export default async function handler(req, res) {
   const address = sanitize(req.body?.address);
   const message = sanitize(req.body?.message);
   const contactPhone = phone || 'Not provided';
-  const deliveryAddress = address || 'Not provided';
+  const deliveryAddress = address;
 
-  if (!name || !email || !message) {
-    return res.status(400).json({ message: 'Please enter your name, email, and message.' });
+  if (!name || !email || !address || !message) {
+    return res.status(400).json({ message: 'Please enter your name, email, delivery address, and message.' });
   }
 
   if (!isValidEmail(email)) {
