@@ -134,6 +134,7 @@ export default function Home() {
   const [showMobileFallback, setShowMobileFallback] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [activeSection, setActiveSection] = useState('product');
+  const [highlightNameField, setHighlightNameField] = useState(false);
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || '';
   const socialImageUrl = siteUrl ? `${siteUrl}${seo.socialImage}` : seo.socialImage;
   const whatsappLink = `https://wa.me/${business.whatsappNumber}?text=${encodeURIComponent(business.whatsappMessage)}`;
@@ -212,6 +213,17 @@ export default function Home() {
       window.removeEventListener('resize', updateActiveSection);
     };
   }, []);
+
+  useEffect(() => {
+    if (activeSection !== 'contact') {
+      return undefined;
+    }
+
+    setHighlightNameField(true);
+    const timer = window.setTimeout(() => setHighlightNameField(false), 1800);
+
+    return () => window.clearTimeout(timer);
+  }, [activeSection]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -488,7 +500,13 @@ export default function Home() {
         <form className="contact-form" name="contact" onSubmit={handleSubmit}>
           <label>
             Name
-            <input type="text" name="name" placeholder="Your name" required />
+            <input
+              className={highlightNameField ? 'field-focus-cue' : ''}
+              type="text"
+              name="name"
+              placeholder="Your name"
+              required
+            />
           </label>
           <label>
             Email
