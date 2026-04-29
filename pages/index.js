@@ -477,9 +477,9 @@ export default function Home() {
       <section className="contact" id="contact">
         <div>
           <p className="eyebrow">Contact</p>
-          <h2>Send your Vedhenna inquiry.</h2>
+          <h2>Start your Vedhenna order.</h2>
           <p>
-            Share your name, email, and question. Desktop users can send directly from the site, while mobile users can continue quickly through WhatsApp.
+            Use this section to initiate an order. Mobile users can continue through WhatsApp, while desktop and laptop users can send the email form directly from the site.
           </p>
           <div className="contact-options">
             <a className="whatsapp-link" href={whatsappLink} target="_blank" rel="noreferrer">Chat on WhatsApp</a>
