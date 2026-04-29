@@ -321,7 +321,6 @@ export default function Home() {
               {label}
             </a>
           ))}
-          <a className="nav-whatsapp" href={whatsappLink} target="_blank" rel="noreferrer">WhatsApp</a>
         </nav>
       </header>
 
