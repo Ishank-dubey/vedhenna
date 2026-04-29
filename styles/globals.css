@@ -595,10 +595,6 @@ h3 {
   font-weight: 800;
 }
 
-.contact-options .whatsapp-link {
-  color: #7ce4a5;
-}
-
 .contact-form {
   color: var(--ink);
   display: grid;

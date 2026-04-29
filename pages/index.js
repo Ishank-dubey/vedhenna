@@ -491,7 +491,6 @@ export default function Home() {
             Share your details and delivery address to initiate your order. We will review it and get back to you soon.
           </p>
           <div className="contact-options">
-            <a className="whatsapp-link" href={whatsappLink} target="_blank" rel="noreferrer">Chat on WhatsApp</a>
             <a href={`tel:${business.phone.replace(/[^0-9]/g, '')}`}>{business.phone}</a>
             <a href={`mailto:${business.email}`}>{business.email}</a>
             <span>{business.location}</span>
