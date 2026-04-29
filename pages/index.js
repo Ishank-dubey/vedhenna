@@ -326,9 +326,9 @@ export default function Home() {
           <p className="hero-title">{business.headline}</p>
           <p className="hero-copy">{business.intro}</p>
           <div className="hero-actions">
-            <a className="button whatsapp" href={whatsappLink} target="_blank" rel="noreferrer">
-              <Icon>WA</Icon>
-              Chat on WhatsApp
+            <a className="button whatsapp" href="#contact" onClick={() => setActiveSection('contact')}>
+              <Icon>&gt;</Icon>
+              Order now
             </a>
             <a className="button secondary" href={`tel:${business.phone.replace(/[^0-9]/g, '')}`}>
               <Icon>#</Icon>
