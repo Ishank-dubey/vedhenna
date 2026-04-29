@@ -518,7 +518,7 @@ export default function Home() {
           </label>
           <button className="button primary" type="submit" disabled={isSubmitting}>
             <Icon>&gt;</Icon>
-            {isSubmitting ? 'Sending...' : 'Send message'}
+            {isSubmitting ? 'Sending...' : 'Place order'}
           </button>
           {formStatus ? (
             <p className={`form-status ${formStatus.includes('Email sent') ? 'success' : ''}`} role="status">
