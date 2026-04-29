@@ -4,6 +4,7 @@ export const ingredientPages = [
     slug: 'amla',
     botanicalName: 'Phyllanthus emblica',
     visual: 'amla',
+    image: '/amla-botanical.jpg',
     summary:
       'Amla, also known as Indian gooseberry, is a fruit valued in traditional hair care for its naturally tart, tannin-rich profile.',
     botanicalProperties: [
@@ -147,4 +148,3 @@ export const ingredientPages = [
 
 export const getIngredientBySlug = (slug) =>
   ingredientPages.find((ingredient) => ingredient.slug === slug);
-

@@ -29,9 +29,13 @@ export default function IngredientPage({ ingredient }) {
         </header>
 
         <section className="ingredient-detail-grid">
-          <div className={`botanical-visual ${ingredient.visual}`} aria-label={`${ingredient.name} botanical illustration`}>
-            <span>{ingredient.name}</span>
-          </div>
+          {ingredient.image ? (
+            <img className="botanical-photo" src={ingredient.image} alt={`${ingredient.name} botanical ingredient`} />
+          ) : (
+            <div className={`botanical-visual ${ingredient.visual}`} aria-label={`${ingredient.name} botanical illustration`}>
+              <span>{ingredient.name}</span>
+            </div>
+          )}
 
           <article className="ingredient-info-card">
             <h2>Botanical properties</h2>
@@ -85,4 +89,3 @@ export function getStaticProps({ params }) {
     }
   };
 }
-
