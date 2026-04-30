@@ -30,7 +30,16 @@ export default function IngredientPage({ ingredient }) {
 
         <section className="ingredient-detail-grid">
           {ingredient.image ? (
-            <img className="botanical-photo" src={ingredient.image} alt={`${ingredient.name} botanical ingredient`} />
+            <figure className="botanical-photo-frame">
+              <img className="botanical-photo" src={ingredient.image} alt={`${ingredient.name} botanical ingredient`} />
+              {ingredient.imageCredit ? (
+                <figcaption>
+                  <a href={ingredient.imageCreditUrl} target="_blank" rel="noreferrer">
+                    {ingredient.imageCredit}
+                  </a>
+                </figcaption>
+              ) : null}
+            </figure>
           ) : (
             <div className={`botanical-visual ${ingredient.visual}`} aria-label={`${ingredient.name} botanical illustration`}>
               <span>{ingredient.name}</span>

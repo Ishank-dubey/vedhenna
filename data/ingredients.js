@@ -23,6 +23,9 @@ export const ingredientPages = [
     slug: 'reetha',
     botanicalName: 'Sapindus mukorossi',
     visual: 'reetha',
+    image: '/reetha-botanical.jpg',
+    imageCredit: 'Photo by Salil Kumar Mukherjee, CC BY-SA 4.0',
+    imageCreditUrl: 'https://commons.wikimedia.org/wiki/File:Ritha_(Sapindus_mukorossi)_fruits.jpg',
     summary:
       'Reetha, or soapnut, is known for natural saponins that create a gentle cleansing effect.',
     botanicalProperties: [

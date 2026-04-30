@@ -798,12 +798,17 @@ textarea {
 }
 
 .botanical-visual,
-.botanical-photo,
+.botanical-photo-frame,
 .ingredient-info-card {
   background: var(--panel);
   border: 1px solid var(--line);
   border-radius: 8px;
   box-shadow: 0 8px 28px rgba(24, 32, 30, 0.06);
+}
+
+.botanical-photo-frame {
+  margin: 0;
+  overflow: hidden;
 }
 
 .botanical-photo {
@@ -812,6 +817,19 @@ textarea {
   min-height: 340px;
   object-fit: cover;
   width: 100%;
+}
+
+.botanical-photo-frame figcaption {
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.45;
+  padding: 10px 14px 12px;
+}
+
+.botanical-photo-frame a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .botanical-visual {
