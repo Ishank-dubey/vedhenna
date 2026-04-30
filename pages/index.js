@@ -393,6 +393,7 @@ export default function Home() {
         <div className="how-to-apply">
           <h3>How to apply</h3>
           <p>Open the packet, wear the gloves provided, and apply the henna.</p>
+          <a href="/how-to-apply">Read application guidance</a>
         </div>
         <div className="benefit-grid">
           {business.benefits.map((benefit) => (
