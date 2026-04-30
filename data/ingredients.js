@@ -44,6 +44,9 @@ export const ingredientPages = [
     slug: 'shikakai',
     botanicalName: 'Acacia concinna',
     visual: 'shikakai',
+    image: '/shikakai-botanical.jpg',
+    imageCredit: 'Photo by Salil Kumar Mukherjee, CC BY-SA 4.0',
+    imageCreditUrl: 'https://commons.wikimedia.org/wiki/File:Shikakai_(Senegalia_rugata)_seed_pods.jpg',
     summary:
       'Shikakai is a pod-based botanical used in traditional Indian hair cleansing and conditioning blends.',
     botanicalProperties: [
