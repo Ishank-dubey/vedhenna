@@ -128,6 +128,9 @@ export const ingredientPages = [
     slug: 'fenugreek-seeds',
     botanicalName: 'Trigonella foenum-graecum',
     visual: 'fenugreek',
+    image: '/fenugreek-botanical.jpg',
+    imageCredit: 'Photo by Sanjay Acharya, CC BY-SA 3.0',
+    imageCreditUrl: 'https://commons.wikimedia.org/wiki/File:Fenugreek_seeds.jpg',
     summary:
       'Fenugreek seeds are valued for their mucilage-rich texture, which gives herbal blends a conditioning slip.',
     botanicalProperties: [
