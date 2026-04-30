@@ -29,6 +29,7 @@ export default function HowToApplyPage() {
             Thank you for being interested in Vedhenna. We are happy to share this simple guidance for now, and we will add
             detailed photos, videos, and step-by-step instructions soon.
           </p>
+          <img className="apply-hero-image" src="/vedhenna-hero.jpg" alt="Vedhenna natural hair care branding" />
         </header>
 
         <section className="apply-steps" aria-label="Vedhenna application steps">
