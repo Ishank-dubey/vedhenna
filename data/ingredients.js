@@ -107,6 +107,9 @@ export const ingredientPages = [
     slug: 'hibiscus-flowers',
     botanicalName: 'Hibiscus rosa-sinensis',
     visual: 'hibiscus',
+    image: '/hibiscus-botanical.jpg',
+    imageCredit: 'Photo by Jeremyida002, CC BY-SA 4.0',
+    imageCreditUrl: 'https://commons.wikimedia.org/wiki/File:Hibiscus_Flower_(Hibiscus_rosa-sinensis).jpg',
     summary:
       'Hibiscus flowers bring a soft, conditioning character to herbal hair-care formulations.',
     botanicalProperties: [
