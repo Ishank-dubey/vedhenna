@@ -66,8 +66,8 @@ export const ingredientPages = [
     botanicalName: 'Eclipta prostrata',
     visual: 'bhringraj',
     image: '/bhringraj-botanical.jpg',
-    imageCredit: 'Photo by Billjones94, CC BY-SA 4.0',
-    imageCreditUrl: 'https://commons.wikimedia.org/wiki/File:False_daisy_or_bhringraj_(Eclipta_prostrata)_flower.jpg',
+    imageCredit: 'Photo by Eitan Ferman, CC BY-SA 4.0',
+    imageCreditUrl: 'https://commons.wikimedia.org/wiki/File:Eclipta_prostrata_flower.JPG',
     summary:
       'Bhringraj is a leafy herb widely associated with traditional hair oils and scalp-care formulations.',
     botanicalProperties: [
