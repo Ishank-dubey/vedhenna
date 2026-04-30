@@ -21,15 +21,18 @@ export default function HowToApplyPage() {
       </Head>
 
       <main className="ingredient-page apply-page">
-        <header className="ingredient-page-header">
-          <Link href="/#ingredients">Back to Vedhenna</Link>
-          <p className="eyebrow">How to apply</p>
-          <h1>How to apply Vedhenna</h1>
-          <p>
-            Thank you for being interested in Vedhenna. We are happy to share this simple guidance for now, and we will add
-            detailed photos, videos, and step-by-step instructions soon.
-          </p>
+        <header className="apply-hero">
           <img className="apply-hero-image" src="/vedhenna-hero.jpg" alt="Vedhenna natural hair care branding" />
+          <div className="hero-overlay" />
+          <div className="apply-hero-content">
+            <Link href="/#ingredients">Back to Vedhenna</Link>
+            <p className="eyebrow">How to apply</p>
+            <h1>How to apply Vedhenna</h1>
+            <p>
+              Thank you for being interested in Vedhenna. We are happy to share this simple guidance for now, and we will add
+              detailed photos, videos, and step-by-step instructions soon.
+            </p>
+          </div>
         </header>
 
         <section className="apply-steps" aria-label="Vedhenna application steps">
