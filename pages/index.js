@@ -285,8 +285,6 @@ export default function Home() {
         <title>{seo.title}</title>
         <meta name="description" content={seo.description} />
         <link rel="canonical" href={seo.url} />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <meta property="og:title" content={seo.title} />
         <meta property="og:description" content={seo.description} />
         <meta property="og:url" content={seo.url} />
