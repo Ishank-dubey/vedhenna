@@ -146,6 +146,9 @@ export const ingredientPages = [
     slug: 'amaltas',
     botanicalName: 'Cassia fistula',
     visual: 'amaltas',
+    image: '/amaltas-botanical.jpg',
+    imageCredit: 'Photo by Sisirbanga, CC BY-SA 4.0',
+    imageCreditUrl: 'https://commons.wikimedia.org/wiki/File:Amaltas_or_cassia_fistula.JPG',
     summary:
       'Amaltas, also known as the golden shower tree, is a botanical used in traditional wellness and care preparations.',
     botanicalProperties: [
