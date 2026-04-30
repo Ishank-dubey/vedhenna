@@ -86,6 +86,9 @@ export const ingredientPages = [
     slug: 'kathha',
     botanicalName: 'Acacia catechu',
     visual: 'kathha',
+    image: '/kathha-botanical.jpg',
+    imageCredit: 'Photo by Salil Kumar Mukherjee, CC BY-SA 4.0',
+    imageCreditUrl: 'https://commons.wikimedia.org/wiki/File:Catechu.jpg',
     summary:
       'Kathha is a catechu extract traditionally prepared from Acacia catechu and valued for its tannin-rich character.',
     botanicalProperties: [
