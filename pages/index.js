@@ -84,6 +84,11 @@ const business = {
       name: 'Deepti'
     },
     {
+      quote:
+        'This is my first Vedhenna order. It came in a lovely hand-packaged bag, with a pair of gloves for applying the henna. The henna is in a vacuum pack, and there is a handwritten note with instructions on how to apply it!',
+      name: 'Ria'
+    },
+    {
       quote: 'Highly effective and natural.',
       name: 'Akanksha'
     },
