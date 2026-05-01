@@ -79,6 +79,11 @@ const business = {
   ],
   reviews: [
     {
+      quote:
+        'I am so happy to see you start this, Preeti! It takes me right back to our school days when I would watch you carefully mix henna, amla, reetha, and other herbs in an iron pot. Even then, you were so passionate about natural hair care and always shared the amazing benefits of this herbal blend. I love that you are now bringing your own tried-and-tested recipe, one you have trusted for years, to others. Wishing you all the success in this wonderful journey. More power to you!',
+      name: 'Deepti'
+    },
+    {
       quote: 'Highly effective and natural.',
       name: 'Akanksha'
     },
