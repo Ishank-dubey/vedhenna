@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import SiteFooter from '../../components/SiteFooter';
 import { getIngredientBySlug, ingredientPages } from '../../data/ingredients';
 
 const siteUrl = 'https://www.vedhenna.com';
@@ -74,9 +75,10 @@ export default function IngredientPage({ ingredient }) {
                 <Link className="ingredient-chip" href={`/ingredients/${item.slug}`} key={item.slug}>
                   {item.name}
                 </Link>
-              ))}
+            ))}
           </div>
         </section>
+        <SiteFooter />
       </main>
     </>
   );

@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import SiteFooter from '../components/SiteFooter';
 
 const siteUrl = 'https://www.vedhenna.com';
 
@@ -49,6 +50,7 @@ export default function HowToApplyPage() {
             </p>
           </article>
         </section>
+        <SiteFooter />
       </main>
     </>
   );

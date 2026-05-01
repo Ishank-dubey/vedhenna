@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
+import SiteFooter from '../components/SiteFooter';
 import { ingredientPages } from '../data/ingredients';
 
 const seo = {
@@ -570,10 +571,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="site-footer">
-        <p>&copy; {new Date().getFullYear()} {business.name}. All rights reserved.</p>
-        <p>We are a small business, and we love the care and craft we put into our work.</p>
-      </footer>
+      <SiteFooter />
 
       </main>
     </>
