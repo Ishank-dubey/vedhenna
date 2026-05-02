@@ -85,22 +85,28 @@ export default function HowToApplyPage() {
           <div className="apply-video-grid">
             <article className="apply-video-card">
               <h3>Short instructions</h3>
-              <iframe
-                src="https://drive.google.com/file/d/1bvbESTxR0ltzB1GHDkGsTKbfMSBAhmG1/preview"
-                title="Short Vedhenna application instructions"
-                allow="autoplay"
-                loading="lazy"
-              />
+              <div className="apply-video-frame">
+                <iframe
+                  src="https://drive.google.com/file/d/1bvbESTxR0ltzB1GHDkGsTKbfMSBAhmG1/preview"
+                  title="Short Vedhenna application instructions"
+                  allow="autoplay"
+                  allowFullScreen
+                  loading="lazy"
+                />
+              </div>
               <a href={shortVideoUrl} target="_blank" rel="noreferrer">Open short video</a>
             </article>
             <article className="apply-video-card">
               <h3>Detailed instructions</h3>
-              <iframe
-                src="https://drive.google.com/file/d/1FICyIwqDKhRJds2PNtxps8wWjNG2_Yi0/preview"
-                title="Detailed Vedhenna application instructions"
-                allow="autoplay"
-                loading="lazy"
-              />
+              <div className="apply-video-frame">
+                <iframe
+                  src="https://drive.google.com/file/d/1FICyIwqDKhRJds2PNtxps8wWjNG2_Yi0/preview"
+                  title="Detailed Vedhenna application instructions"
+                  allow="autoplay"
+                  allowFullScreen
+                  loading="lazy"
+                />
+              </div>
               <a href={detailedVideoUrl} target="_blank" rel="noreferrer">Open detailed video</a>
             </article>
           </div>
