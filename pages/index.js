@@ -89,6 +89,11 @@ const business = {
       name: 'Ria'
     },
     {
+      quote:
+        'The mehndi is really good. What makes it different is that it does not give an orange color, but a nice burgundy and blackish color. I also really feel that my hair has become softer and cannot stop touching it. Highly recommended! Will order the next batch soon!',
+      name: 'Nazia'
+    },
+    {
       quote: 'Highly effective and natural.',
       name: 'Akanksha'
     },
