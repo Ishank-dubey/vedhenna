@@ -6,7 +6,7 @@ import { ingredientPages } from '../data/ingredients';
 const seo = {
   title: 'Vedhenna | Natural Hair Care',
   description:
-    'Vedhenna natural hair care with Amla, Reetha, Shikakai, Bhringraj, Kathha, Hibiscus, Fenugreek and Amaltas for color, conditioning and hairfall care.',
+    'Vedhenna is a Hyderabad-based natural henna hair care product with Amla, Reetha, Shikakai, Bhringraj and herbs, delivered across India.',
   url: 'https://www.vedhenna.com/',
   socialImage: '/vedhenna-social.jpg'
 };
@@ -16,7 +16,7 @@ const business = {
   category: 'Natural hair care',
   headline: 'Herbal hair care made with trusted botanical ingredients.',
   intro:
-    'A natural hair care product crafted with traditional herbs for rich color, conditioning, and everyday hair wellness.',
+    'A Hyderabad-based natural henna hair care product crafted with traditional herbs for rich color, conditioning, and delivery across India.',
   phone: '+91 98286 08796',
   whatsappNumber: '919828608796',
   whatsappMessage: 'I want to order Vedhenna - quantity, my address for delivery is',
@@ -382,8 +382,11 @@ export default function Home() {
           <p className="eyebrow">The Product</p>
           <h2>Vedhenna brings traditional herbs into simple hair care.</h2>
           <p>
-            A single product today, focused on natural color, conditioning, hair growth support, and helping reduce hairfall.
+            A single natural henna hair care product from Hyderabad, focused on natural color, conditioning, hair growth support, and helping reduce hairfall. Vedhenna is available for delivery across India.
           </p>
+          <a className="section-link" href="/natural-henna-hair-care-hyderabad">
+            Natural henna hair care in Hyderabad and across India
+          </a>
         </div>
         <div className="service-grid">
           {business.services.map((service) => (

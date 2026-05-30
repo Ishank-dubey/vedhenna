@@ -164,6 +164,15 @@ h3 {
   line-height: 1.65;
 }
 
+.section-link {
+  color: var(--forest);
+  display: inline-flex;
+  font-weight: 900;
+  margin-top: 14px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
 .hero-copy {
   color: rgba(255, 255, 255, 0.84);
   max-width: 620px;
@@ -1068,6 +1077,31 @@ textarea {
   text-underline-offset: 4px;
 }
 
+.local-seo-grid {
+  display: grid;
+  gap: 22px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  padding: 72px clamp(20px, 6vw, 84px);
+}
+
+.local-seo-grid p,
+.local-seo-content p {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.local-seo-content {
+  background: #fffdf7;
+  padding: 72px clamp(20px, 6vw, 84px);
+}
+
+.local-seo-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
 @media (max-width: 820px) {
   html {
     scroll-padding-top: 150px;
@@ -1106,6 +1140,7 @@ textarea {
   .ingredient-detail-grid,
   .apply-steps,
   .apply-video-grid,
+  .local-seo-grid,
   .band,
   .contact {
     grid-template-columns: 1fr;
