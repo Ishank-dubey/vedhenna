@@ -23,6 +23,20 @@ export default function HowToApplyPage() {
         <meta property="og:url" content={`${siteUrl}/how-to-apply`} />
       </Head>
 
+      <header className="site-header" aria-label="Primary navigation">
+        <a className="brand" href="/" aria-label="Vedhenna home">
+          <span>Vedhenna</span>
+        </a>
+        <nav>
+          <a href="/#product">Product</a>
+          <a href="/#ingredients">Ingredients</a>
+          <a href="/#rates">Price</a>
+          <a href="/#reviews">Reviews</a>
+          <a className="active" href="/how-to-apply" aria-current="page">How to Apply</a>
+          <a href="/#order-name-target">Order</a>
+        </nav>
+      </header>
+
       <main className="ingredient-page apply-page">
         <header className="apply-hero">
           <img className="apply-hero-image" src="/vedhenna-hero.jpg" alt="Vedhenna natural hair care branding" />
