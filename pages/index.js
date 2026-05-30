@@ -132,7 +132,7 @@ const navLinks = [
   ['ingredients', 'Ingredients'],
   ['rates', 'Price'],
   ['reviews', 'Reviews'],
-  ['social', 'Social'],
+  ['how-to-apply', 'How to Apply', '/how-to-apply'],
   ['contact', 'Order']
 ];
 
@@ -325,12 +325,16 @@ export default function Home() {
           <span>{business.name}</span>
         </a>
         <nav>
-          {navLinks.map(([id, label]) => (
+          {navLinks.map(([id, label, href]) => (
             <a
               className={activeSection === id ? 'active' : ''}
-              href={id === 'contact' ? '#order-name-target' : `#${id}`}
+              href={href || (id === 'contact' ? '#order-name-target' : `#${id}`)}
               key={id}
-              onClick={() => setActiveSection(id)}
+              onClick={() => {
+                if (!href) {
+                  setActiveSection(id);
+                }
+              }}
               aria-current={activeSection === id ? 'page' : undefined}
             >
               {label}
