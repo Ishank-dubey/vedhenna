@@ -460,7 +460,7 @@ export default function Home() {
           </table>
         </div>
         <p className="rates-note">
-          The introductory price is Rs 299 for 400ML; the usual price is Rs 499. Delivery within Hyderabad is handled as per the listed rate. For delivery addresses outside Hyderabad, an additional delivery charge may apply.
+          The introductory price is Rs 299 for 400ML; the usual price is Rs 499. For delivery within Hyderabad, a small transport fee may be added based on the address. For delivery addresses outside Hyderabad, an additional delivery charge may apply.
         </p>
       </section>
 
