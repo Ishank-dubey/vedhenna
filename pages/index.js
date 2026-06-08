@@ -21,7 +21,7 @@ const business = {
   whatsappNumber: '919828608796',
   whatsappMessage: 'I want to order Vedhenna - quantity, my address for delivery is',
   email: 'preetisharma.0613@gmail.com',
-  instagramUrl: 'https://www.instagram.com/vedheenabypreeti?igsh=eWh6aWNvZ2JiNGhj',
+  instagramUrl: 'https://www.instagram.com/vedhennabypreeti/',
   location: 'Located in Hyderabad, Telangana, India',
   city: 'Hyderabad',
   region: 'Telangana',
@@ -505,7 +505,7 @@ export default function Home() {
             <span className="instagram-dot" />
           </span>
           <span>
-            <strong>@vedheenabypreeti</strong>
+            <strong>@vedhennabypreeti</strong>
             <small>Open Instagram page</small>
           </span>
         </a>
