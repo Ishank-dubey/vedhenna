@@ -97,14 +97,6 @@ const business = {
       quote:
         'I have used Vedhenna. It is awesome as it makes the hair soft, shining, and thick. Loved the natural chemical-free care for my hair!',
       name: 'Shweta'
-    },
-    {
-      quote: 'Highly effective and natural.',
-      name: 'Akanksha'
-    },
-    {
-      quote: 'Good job Preeti on putting together this formula.',
-      name: 'Bhawna'
     }
   ]
 };
