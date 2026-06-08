@@ -246,6 +246,14 @@ h3 {
   padding: 28px clamp(18px, 4vw, 56px);
 }
 
+a.stat {
+  transition: background 160ms ease;
+}
+
+a.stat:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
 .stat strong {
   display: block;
   font-size: clamp(2rem, 4vw, 3.4rem);

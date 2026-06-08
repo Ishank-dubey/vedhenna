@@ -73,8 +73,8 @@ const business = {
     }
   ],
   stats: [
-    ['8', 'botanical ingredients'],
-    ['1', 'signature product'],
+    ['8', 'botanical ingredients', '#ingredients'],
+    ['1', 'signature product', '#product'],
     ['4', 'key hair care benefits']
   ],
   reviews: [
@@ -366,12 +366,16 @@ export default function Home() {
       </section>
 
       <section className="stats" aria-label="Business highlights">
-        {business.stats.map(([value, label]) => (
-          <div className="stat" key={label}>
-            <strong>{value}</strong>
-            <span>{label}</span>
-          </div>
-        ))}
+        {business.stats.map(([value, label, href]) => {
+          const StatElement = href ? 'a' : 'div';
+
+          return (
+            <StatElement className="stat" href={href} key={label}>
+              <strong>{value}</strong>
+              <span>{label}</span>
+            </StatElement>
+          );
+        })}
       </section>
 
       <section className="section" id="product">
