@@ -1092,13 +1092,23 @@ textarea {
   padding: 72px clamp(20px, 6vw, 84px);
 }
 
+.usage-benefits-grid {
+  display: grid;
+  gap: 22px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  padding: 72px clamp(20px, 6vw, 84px);
+}
+
 .local-seo-grid p,
-.local-seo-content p {
+.local-seo-content p,
+.usage-benefits-grid p,
+.usage-content p {
   color: var(--muted);
   line-height: 1.65;
 }
 
-.local-seo-content {
+.local-seo-content,
+.usage-content {
   background: #fffdf7;
   padding: 72px clamp(20px, 6vw, 84px);
 }
@@ -1149,6 +1159,7 @@ textarea {
   .apply-steps,
   .apply-video-grid,
   .local-seo-grid,
+  .usage-benefits-grid,
   .band,
   .contact {
     grid-template-columns: 1fr;

@@ -75,7 +75,7 @@ const business = {
   stats: [
     ['8', 'botanical ingredients', '#ingredients'],
     ['1', 'signature product', '#product'],
-    ['4', 'key hair care benefits']
+    ['4', 'key hair care benefits', '/usage-and-benefits']
   ],
   reviews: [
     {
