@@ -94,6 +94,11 @@ const business = {
       name: 'Nazia'
     },
     {
+      quote:
+        'I have used Vedhenna. It is awesome as it makes the hair soft, shining, and thick. Loved the natural chemical-free care for my hair!',
+      name: 'Shweta'
+    },
+    {
       quote: 'Highly effective and natural.',
       name: 'Akanksha'
     },
