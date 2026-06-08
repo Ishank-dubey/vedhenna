@@ -1107,6 +1107,15 @@ textarea {
   line-height: 1.65;
 }
 
+.usage-card-link {
+  color: var(--forest);
+  display: inline-flex;
+  font-weight: 900;
+  margin-top: 12px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
 .local-seo-content,
 .usage-content {
   background: #fffdf7;

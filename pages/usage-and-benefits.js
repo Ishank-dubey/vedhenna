@@ -62,6 +62,9 @@ export default function UsageAndBenefitsPage() {
               Ingredients such as Amla, Reetha, Shikakai, Bhringraj, Kathha, Hibiscus, Fenugreek, and Amaltas support a
               traditional botanical hair care routine.
             </p>
+            <a className="usage-card-link" href="/#ingredients">
+              Explore the botanical ingredients
+            </a>
           </article>
 
           <article className="ingredient-info-card">
