@@ -46,23 +46,6 @@ const business = {
       description: 'Supports regular hair care routines focused on reducing breakage and hairfall.'
     }
   ],
-  services: [
-    {
-      title: 'Natural blend',
-      description: 'Made with Amla, Reetha, Shikakai, Bhringraj, Kathha, Hibiscus flowers, Fenugreek seeds, and Amaltas.',
-      price: '8 herbs'
-    },
-    {
-      title: 'Hair color care',
-      description: 'Designed for deep natural color while keeping hair care gentle and simple.',
-      price: 'Natural tone'
-    },
-    {
-      title: 'Daily confidence',
-      description: 'Supports conditioning, hair growth care, and reduced hairfall in one product.',
-      price: 'All-in-one'
-    }
-  ],
   productRates: [
     {
       product: 'Vedhenna Hair Care',
@@ -388,15 +371,6 @@ export default function Home() {
           <a className="section-link" href="/natural-henna-hair-care-hyderabad">
             Natural henna hair care in Hyderabad and across India
           </a>
-        </div>
-        <div className="service-grid">
-          {business.services.map((service) => (
-            <article className="service-card" key={service.title}>
-              <h3>{service.title}</h3>
-              <p>{service.description}</p>
-              <span>{service.price}</span>
-            </article>
-          ))}
         </div>
       </section>
 
