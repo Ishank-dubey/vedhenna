@@ -132,6 +132,7 @@ export default function Home() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [activeSection, setActiveSection] = useState('product');
   const [highlightNameField, setHighlightNameField] = useState(false);
+  const [showMonthBanner, setShowMonthBanner] = useState(true);
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || '';
   const socialImageUrl = siteUrl ? `${siteUrl}${seo.socialImage}` : seo.socialImage;
   const whatsappLink = `https://wa.me/${business.whatsappNumber}?text=${encodeURIComponent(business.whatsappMessage)}`;
@@ -222,6 +223,27 @@ export default function Home() {
     return () => window.clearTimeout(timer);
   }, [activeSection]);
 
+  useEffect(() => {
+    if (!showMonthBanner) {
+      return undefined;
+    }
+
+    const handleEscape = (event) => {
+      if (event.key === 'Escape') {
+        setShowMonthBanner(false);
+      }
+    };
+
+    window.addEventListener('keydown', handleEscape);
+
+    return () => window.removeEventListener('keydown', handleEscape);
+  }, [showMonthBanner]);
+
+  const handleBannerOrder = () => {
+    setShowMonthBanner(false);
+    setActiveSection('contact');
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     const form = event.currentTarget;
@@ -299,6 +321,40 @@ export default function Home() {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
         />
       </Head>
+      {showMonthBanner && (
+        <div
+          className="month-banner-backdrop"
+          role="presentation"
+          onClick={() => setShowMonthBanner(false)}
+        >
+          <aside
+            className="month-banner-dialog"
+            aria-label="Vedhenna one month banner"
+            role="dialog"
+            aria-modal="true"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              className="month-banner-close"
+              type="button"
+              aria-label="Close banner"
+              onClick={() => setShowMonthBanner(false)}
+            >
+              &times;
+            </button>
+            <img
+              className="month-banner-image"
+              src="/vedhenna-month-banner.jpeg"
+              alt="Vedhenna one month celebration banner"
+            />
+            <div className="month-banner-actions">
+              <a className="button primary" href="#order-name-target" onClick={handleBannerOrder}>
+                Order now
+              </a>
+            </div>
+          </aside>
+        </div>
+      )}
       <main>
       <header className="site-header" aria-label="Primary navigation">
         <a className="brand" href="#top" aria-label={`${business.name} home`}>

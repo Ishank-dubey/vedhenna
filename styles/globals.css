@@ -209,6 +209,85 @@ h3 {
   transform: none;
 }
 
+.month-banner-backdrop {
+  align-items: center;
+  animation: bannerFadeIn 180ms ease;
+  background: rgba(24, 32, 30, 0.72);
+  display: flex;
+  inset: 0;
+  justify-content: center;
+  padding: 18px;
+  position: fixed;
+  z-index: 30;
+}
+
+.month-banner-dialog {
+  animation: bannerSlideIn 220ms ease;
+  background: var(--panel);
+  border-radius: 8px;
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.28);
+  max-height: calc(100vh - 36px);
+  max-width: min(440px, 100%);
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.month-banner-close {
+  align-items: center;
+  background: rgba(24, 32, 30, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  border-radius: 999px;
+  color: white;
+  cursor: pointer;
+  display: inline-flex;
+  font: inherit;
+  font-size: 1.35rem;
+  font-weight: 900;
+  height: 40px;
+  justify-content: center;
+  line-height: 1;
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  transition: background 160ms ease, transform 160ms ease;
+  width: 40px;
+  z-index: 1;
+}
+
+.month-banner-close:hover {
+  background: var(--coral);
+  transform: scale(1.04);
+}
+
+.month-banner-image {
+  display: block;
+  max-height: calc(100vh - 112px);
+  object-fit: contain;
+  width: 100%;
+}
+
+.month-banner-actions {
+  background: var(--panel);
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: center;
+  padding: 14px;
+}
+
+@keyframes bannerFadeIn {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes bannerSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.98);
+  }
+}
+
 .primary {
   background: var(--coral);
   box-shadow: 0 12px 30px rgba(217, 95, 69, 0.28);
@@ -1188,6 +1267,23 @@ textarea {
 }
 
 @media (max-width: 520px) {
+  .month-banner-backdrop {
+    align-items: flex-start;
+    padding: 12px;
+  }
+
+  .month-banner-dialog {
+    max-height: calc(100vh - 24px);
+  }
+
+  .month-banner-image {
+    max-height: calc(100vh - 104px);
+  }
+
+  .month-banner-actions .button {
+    width: 100%;
+  }
+
   .site-header nav {
     flex-wrap: wrap;
     width: 100%;
@@ -1212,4 +1308,11 @@ textarea {
     padding: 16px;
   }
 
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .month-banner-backdrop,
+  .month-banner-dialog {
+    animation: none;
+  }
 }
