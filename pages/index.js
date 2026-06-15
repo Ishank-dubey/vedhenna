@@ -19,7 +19,7 @@ const business = {
     'A Hyderabad-based natural henna hair care product crafted with traditional herbs for rich color, conditioning, and delivery across India.',
   phone: '+91 98286 08796',
   whatsappNumber: '919828608796',
-  whatsappMessage: 'I want to order Vedhenna - quantity, my address for delivery is',
+  whatsappMessage: 'I want to order Vedhenna - quantity is',
   email: 'preetisharma.0613@gmail.com',
   instagramUrl: 'https://www.instagram.com/vedhennabypreeti/',
   location: 'Located in Hyderabad, Telangana, India',
@@ -585,6 +585,7 @@ export default function Home() {
               name="message"
               rows="5"
               placeholder={business.whatsappMessage}
+              defaultValue={business.whatsappMessage}
               required
             />
           </label>
