@@ -63,6 +63,16 @@ const business = {
   reviews: [
     {
       quote:
+        'Of all the hennas I have tried, this one is the best. I do not see any gray hair after a day; the color turns either black or maroon, which was not the case with previous organic henna I tried. As for frizz, my hair feels less frizzy compared to when I have used other henna products, though it is not completely frizz-free. I think that may be due to my natural hair type rather than the henna itself.',
+      name: 'Bindu'
+    },
+    {
+      quote:
+        'I really liked it. It gave my hair a beautiful, rich colour and left it feeling soft, smooth, and healthy. The application was easy, and the results looked very natural.',
+      name: 'Chandni'
+    },
+    {
+      quote:
         'I am so happy to see you start this, Preeti! It takes me right back to our school days when I would watch you carefully mix henna, amla, reetha, and other herbs in an iron pot. Even then, you were so passionate about natural hair care and always shared the amazing benefits of this herbal blend. I love that you are now bringing your own tried-and-tested recipe, one you have trusted for years, to others. Wishing you all the success in this wonderful journey. More power to you!',
       name: 'Deepti'
     },
