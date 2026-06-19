@@ -1,4 +1,4 @@
-const CONTACT_TO_EMAIL = process.env.CONTACT_TO_EMAIL || 'preetisharma.0613@gmail.com';
+const FEEDBACK_TO_EMAIL = process.env.FEEDBACK_TO_EMAIL || 'preetisharma.0613@gmail.com';
 const CONTACT_FROM_EMAIL = process.env.CONTACT_FROM_EMAIL || 'Vedhenna <onboarding@resend.dev>';
 
 const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -57,7 +57,7 @@ export default async function handler(req, res) {
 
   const emailPayload = {
     from: CONTACT_FROM_EMAIL,
-    to: CONTACT_TO_EMAIL,
+    to: FEEDBACK_TO_EMAIL,
     subject: `Vedhenna feedback from ${name} - ${rating}/5`,
     text,
     html
