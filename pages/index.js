@@ -134,6 +134,8 @@ const isLikelyMobileDevice = () => {
   return /Android|iPhone|iPad|iPod|IEMobile|Opera Mini/i.test(navigator.userAgent);
 };
 
+const monthBannerStorageKey = 'vedhenna-month-banner-dismissed';
+
 export default function Home() {
   const [formStatus, setFormStatus] = useState('');
   const [formError, setFormError] = useState('');
@@ -142,7 +144,7 @@ export default function Home() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [activeSection, setActiveSection] = useState('product');
   const [highlightNameField, setHighlightNameField] = useState(false);
-  const [showMonthBanner, setShowMonthBanner] = useState(true);
+  const [showMonthBanner, setShowMonthBanner] = useState(false);
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || '';
   const socialImageUrl = siteUrl ? `${siteUrl}${seo.socialImage}` : seo.socialImage;
   const whatsappLink = `https://wa.me/${business.whatsappNumber}?text=${encodeURIComponent(business.whatsappMessage)}`;
@@ -186,6 +188,26 @@ export default function Home() {
 
     return `https://wa.me/${business.whatsappNumber}?text=${encodeURIComponent(whatsappLines.join('\n'))}`;
   };
+
+  const dismissMonthBanner = () => {
+    setShowMonthBanner(false);
+
+    try {
+      window.localStorage.setItem(monthBannerStorageKey, 'true');
+    } catch (error) {
+      // If storage is blocked, closing should still work for this page view.
+    }
+  };
+
+  useEffect(() => {
+    try {
+      if (window.localStorage.getItem(monthBannerStorageKey) !== 'true') {
+        setShowMonthBanner(true);
+      }
+    } catch (error) {
+      setShowMonthBanner(true);
+    }
+  }, []);
 
   useEffect(() => {
     const sections = navLinks
@@ -240,7 +262,7 @@ export default function Home() {
 
     const handleEscape = (event) => {
       if (event.key === 'Escape') {
-        setShowMonthBanner(false);
+        dismissMonthBanner();
       }
     };
 
@@ -250,7 +272,7 @@ export default function Home() {
   }, [showMonthBanner]);
 
   const handleBannerOrder = () => {
-    setShowMonthBanner(false);
+    dismissMonthBanner();
     setActiveSection('contact');
   };
 
@@ -335,7 +357,7 @@ export default function Home() {
         <div
           className="month-banner-backdrop"
           role="presentation"
-          onClick={() => setShowMonthBanner(false)}
+          onClick={dismissMonthBanner}
         >
           <aside
             className="month-banner-dialog"
@@ -348,7 +370,7 @@ export default function Home() {
               className="month-banner-close"
               type="button"
               aria-label="Close banner"
-              onClick={() => setShowMonthBanner(false)}
+              onClick={dismissMonthBanner}
             >
               &times;
             </button>
