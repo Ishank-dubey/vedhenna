@@ -6,8 +6,8 @@ import { getIngredientBySlug, ingredientPages } from '../../data/ingredients';
 const siteUrl = 'https://www.vedhenna.com';
 
 export default function IngredientPage({ ingredient }) {
-  const title = `${ingredient.name} | Vedhenna Ingredient`;
-  const description = `${ingredient.name} (${ingredient.botanicalName}) in Vedhenna natural hair care: botanical properties and hair-care benefits.`;
+  const title = `${ingredient.name} in Vedhenna Hair Care Paste`;
+  const description = `${ingredient.name} is one of the botanicals in Vedhenna natural henna hair care paste for color, conditioning, and everyday hair wellness.`;
 
   return (
     <>
@@ -24,9 +24,12 @@ export default function IngredientPage({ ingredient }) {
         <header className="ingredient-page-header">
           <Link href="/#ingredients">Back to ingredients</Link>
           <p className="eyebrow">Vedhenna Ingredient</p>
-          <h1>{ingredient.name}</h1>
+          <h1>{ingredient.name} in Vedhenna</h1>
           <p className="botanical-name">{ingredient.botanicalName}</p>
-          <p>{ingredient.summary}</p>
+          <p>
+            {ingredient.summary} In Vedhenna, this ingredient is part of an eight-botanical natural henna hair care paste
+            created for customers who want natural color, conditioning, and a simple application routine.
+          </p>
         </header>
 
         <section className="ingredient-detail-grid">
@@ -48,7 +51,19 @@ export default function IngredientPage({ ingredient }) {
           )}
 
           <article className="ingredient-info-card">
-            <h2>Botanical properties</h2>
+            <h2>Role in Vedhenna</h2>
+            <p>
+              {ingredient.vedhennaRole} It works with the other Vedhenna botanicals to support a balanced hair care paste
+              instead of a single-ingredient treatment.
+            </p>
+            <div className="ingredient-actions">
+              <Link className="button primary" href="/#order-name-target">Order Vedhenna</Link>
+              <Link className="button secondary" href="/usage-and-benefits">Usage and benefits</Link>
+            </div>
+          </article>
+
+          <article className="ingredient-info-card">
+            <h2>Why this botanical is included</h2>
             <ul>
               {ingredient.botanicalProperties.map((property) => (
                 <li key={property}>{property}</li>
@@ -57,7 +72,7 @@ export default function IngredientPage({ ingredient }) {
           </article>
 
           <article className="ingredient-info-card">
-            <h2>Hair-care benefits</h2>
+            <h2>How it supports the blend</h2>
             <ul>
               {ingredient.hairBenefits.map((benefit) => (
                 <li key={benefit}>{benefit}</li>

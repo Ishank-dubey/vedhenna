@@ -7,6 +7,8 @@ export const ingredientPages = [
     image: '/amla-botanical.jpg',
     summary:
       'Amla, also known as Indian gooseberry, is a fruit valued in traditional hair care for its naturally tart, tannin-rich profile.',
+    vedhennaRole:
+      'Amla is included in Vedhenna to support shine, scalp comfort, and the traditional herbal character of the blend.',
     botanicalProperties: [
       'Fruit-bearing tree commonly known as Indian gooseberry.',
       'Known for tannins, polyphenols, and naturally occurring vitamin C.',
@@ -28,6 +30,8 @@ export const ingredientPages = [
     imageCreditUrl: 'https://commons.wikimedia.org/wiki/File:Ritha_(Sapindus_mukorossi)_fruits.jpg',
     summary:
       'Reetha, or soapnut, is known for natural saponins that create a gentle cleansing effect.',
+    vedhennaRole:
+      'Reetha is included in Vedhenna to bring a gentle cleansing character that helps the paste rinse cleanly without a harsh feel.',
     botanicalProperties: [
       'Fruit from the soapnut tree.',
       'Contains natural saponins that produce mild foam when mixed with water.',
@@ -49,6 +53,8 @@ export const ingredientPages = [
     imageCreditUrl: 'https://commons.wikimedia.org/wiki/File:Shikakai_(Senegalia_rugata)_seed_pods.jpg',
     summary:
       'Shikakai is a pod-based botanical used in traditional Indian hair cleansing and conditioning blends.',
+    vedhennaRole:
+      'Shikakai is included in Vedhenna to support softness, manageability, and the familiar feel of a traditional herbal hair wash.',
     botanicalProperties: [
       'Climbing shrub whose pods are commonly used in hair-care powders.',
       'Contains natural saponins.',
@@ -70,6 +76,8 @@ export const ingredientPages = [
     imageCreditUrl: 'https://commons.wikimedia.org/wiki/File:Eclipta_prostrata_flower.JPG',
     summary:
       'Bhringraj is a leafy herb widely associated with traditional hair oils and scalp-care formulations.',
+    vedhennaRole:
+      'Bhringraj is included in Vedhenna to support scalp-focused care and the overall hair wellness positioning of the product.',
     botanicalProperties: [
       'Small herbaceous plant with white flower heads.',
       'Leaves are commonly used in traditional hair-care preparations.',
@@ -91,6 +99,8 @@ export const ingredientPages = [
     imageCreditUrl: 'https://commons.wikimedia.org/wiki/File:Catechu.jpg',
     summary:
       'Kathha is a catechu extract traditionally prepared from Acacia catechu and valued for its tannin-rich character.',
+    vedhennaRole:
+      'Kathha is included in Vedhenna to add depth to the natural color-care profile and support a richer botanical tone.',
     botanicalProperties: [
       'Derived from the heartwood of Acacia catechu.',
       'Naturally rich in tannins and catechins.',
@@ -112,6 +122,8 @@ export const ingredientPages = [
     imageCreditUrl: 'https://commons.wikimedia.org/wiki/File:Hibiscus_Flower_(Hibiscus_rosa-sinensis).jpg',
     summary:
       'Hibiscus flowers bring a soft, conditioning character to herbal hair-care formulations.',
+    vedhennaRole:
+      'Hibiscus flowers are included in Vedhenna to support softness, shine, and a more conditioned feel after application.',
     botanicalProperties: [
       'Flowering plant known for vibrant petals.',
       'Flowers contain plant mucilage and natural pigments.',
@@ -133,6 +145,8 @@ export const ingredientPages = [
     imageCreditUrl: 'https://commons.wikimedia.org/wiki/File:Fenugreek_seeds.jpg',
     summary:
       'Fenugreek seeds are valued for their mucilage-rich texture, which gives herbal blends a conditioning slip.',
+    vedhennaRole:
+      'Fenugreek seeds are included in Vedhenna to improve the conditioning feel and make the paste easier to apply through the hair.',
     botanicalProperties: [
       'Small golden seeds from the fenugreek plant.',
       'Known for mucilage, proteins, and plant compounds.',
@@ -154,6 +168,8 @@ export const ingredientPages = [
     imageCreditUrl: 'https://commons.wikimedia.org/wiki/File:Amaltas_or_cassia_fistula.JPG',
     summary:
       'Amaltas, also known as the golden shower tree, is a botanical used in traditional wellness and care preparations.',
+    vedhennaRole:
+      'Amaltas is included in Vedhenna to round out the eight-botanical formulation with a gentle traditional herbal profile.',
     botanicalProperties: [
       'Flowering tree known for bright yellow hanging blossoms.',
       'Different plant parts have a history of traditional use.',

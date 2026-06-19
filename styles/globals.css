@@ -1131,6 +1131,11 @@ textarea {
   font-size: clamp(1.45rem, 3vw, 2.1rem);
 }
 
+.ingredient-info-card p {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
 .ingredient-info-card ul {
   color: var(--muted);
   line-height: 1.65;
@@ -1140,6 +1145,13 @@ textarea {
 
 .ingredient-info-card li + li {
   margin-top: 10px;
+}
+
+.ingredient-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 22px;
 }
 
 .ingredient-next {
