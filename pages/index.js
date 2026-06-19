@@ -6,7 +6,7 @@ import { ingredientPages } from '../data/ingredients';
 const seo = {
   title: 'Vedhenna | Natural Hair Care',
   description:
-    'Vedhenna is a Hyderabad-based natural henna hair care product with Amla, Reetha, Shikakai, Bhringraj and herbs, delivered across India.',
+    'Vedhenna is a Hyderabad-based natural henna hair care paste with Amla, Reetha, Shikakai, Bhringraj and herbs, delivered across India.',
   url: 'https://www.vedhenna.com/',
   socialImage: '/vedhenna-social.jpg'
 };
@@ -14,9 +14,9 @@ const seo = {
 const business = {
   name: 'Vedhenna',
   category: 'Natural hair care',
-  headline: 'Herbal hair care made with trusted botanical ingredients.',
+  headline: 'Herbal hair care paste made with trusted botanical ingredients.',
   intro:
-    'A Hyderabad-based natural henna hair care product crafted with traditional herbs for rich color, conditioning, and delivery across India.',
+    'A Hyderabad-based natural henna hair care paste crafted with traditional herbs for rich color, conditioning, and delivery across India.',
   phone: '+91 98286 08796',
   whatsappNumber: '919828608796',
   whatsappMessage: 'I want to order Vedhenna - quantity is',
@@ -452,9 +452,9 @@ export default function Home() {
       <section className="section" id="product">
         <div className="section-heading">
           <p className="eyebrow">The Product</p>
-          <h2>Vedhenna brings traditional herbs into simple hair care.</h2>
+          <h2>Vedhenna brings traditional herbs into a simple hair care paste.</h2>
           <p>
-            A single natural henna hair care product from Hyderabad, focused on natural color, conditioning, hair growth support, and helping reduce hairfall. Vedhenna is available for delivery across India.
+            A single natural henna hair care paste from Hyderabad, focused on natural color, conditioning, hair growth support, and helping reduce hairfall. Vedhenna is available for delivery across India.
           </p>
           <a className="section-link" href="/natural-henna-hair-care-hyderabad">
             Natural henna hair care in Hyderabad and across India

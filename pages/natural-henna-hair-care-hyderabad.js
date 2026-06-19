@@ -2,9 +2,9 @@ import Head from 'next/head';
 import SiteFooter from '../components/SiteFooter';
 
 const siteUrl = 'https://www.vedhenna.com';
-const title = 'Natural Henna Hair Care in Hyderabad | Vedhenna';
+const title = 'Natural Henna Hair Care Paste in Hyderabad | Vedhenna';
 const description =
-  'Vedhenna is a Hyderabad-based natural henna hair care product made with traditional herbs and available for delivery across India.';
+  'Vedhenna is a Hyderabad-based natural henna hair care paste made with traditional herbs and available for delivery across India.';
 
 export default function NaturalHennaHairCareHyderabadPage() {
   return (
@@ -35,14 +35,14 @@ export default function NaturalHennaHairCareHyderabadPage() {
 
       <main className="ingredient-page local-seo-page">
         <header className="apply-hero local-seo-hero">
-          <img className="apply-hero-image" src="/vedhenna-hero.jpg" alt="Vedhenna natural henna hair care" />
+          <img className="apply-hero-image" src="/vedhenna-hero.jpg" alt="Vedhenna natural henna hair care paste" />
           <div className="hero-overlay" />
           <div className="apply-hero-content">
             <a href="/">Back to Vedhenna</a>
-            <p className="eyebrow">Natural henna hair care</p>
-            <h1>Natural henna hair care in Hyderabad, delivered across India.</h1>
+            <p className="eyebrow">Natural henna hair care paste</p>
+            <h1>Natural henna hair care paste in Hyderabad, delivered across India.</h1>
             <p>
-              Vedhenna is a Hyderabad-based herbal hair care product made with traditional ingredients for natural color,
+              Vedhenna is a Hyderabad-based herbal hair care paste made with traditional ingredients for natural color,
               conditioning, and everyday hair wellness.
             </p>
           </div>
@@ -53,7 +53,7 @@ export default function NaturalHennaHairCareHyderabadPage() {
             <h2>Based in Hyderabad</h2>
             <p>
               Vedhenna is located in Hyderabad, Telangana, India, and serves customers looking for a natural henna hair care
-              option with direct ordering support.
+              paste with direct ordering support.
             </p>
           </article>
 
@@ -77,9 +77,9 @@ export default function NaturalHennaHairCareHyderabadPage() {
         <section className="local-seo-content">
           <div className="section-heading">
             <p className="eyebrow">Why customers choose Vedhenna</p>
-            <h2>A simple herbal hair care product for color and conditioning.</h2>
+            <h2>A simple herbal hair care paste for color and conditioning.</h2>
             <p>
-              Vedhenna is for customers who prefer natural henna hair care, familiar botanical ingredients, and a straightforward
+              Vedhenna is for customers who prefer a natural henna hair care paste, familiar botanical ingredients, and a straightforward
               ordering process. Customers have shared feedback about softer-feeling hair, a richer burgundy-blackish color tone,
               thoughtful packaging, and easy-to-follow application instructions.
             </p>
