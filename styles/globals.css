@@ -1146,7 +1146,7 @@ textarea {
   margin-bottom: 0;
 }
 
-.order-summary-box pre {
+.order-summary-textarea {
   background: white;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -1157,7 +1157,9 @@ textarea {
   min-height: 116px;
   overflow-x: auto;
   padding: 14px;
+  resize: vertical;
   white-space: pre-wrap;
+  width: 100%;
 }
 
 .order-summary-box p:last-child {

@@ -49,6 +49,8 @@ export default function OrderPage() {
   const [fallbackEmailLink, setFallbackEmailLink] = useState('');
   const [showMobileFallback, setShowMobileFallback] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [orderMessage, setOrderMessage] = useState('');
+  const [hasEditedOrderMessage, setHasEditedOrderMessage] = useState(false);
 
   useEffect(() => {
     if (!router.isReady) {
@@ -86,11 +88,15 @@ export default function OrderPage() {
     return [
       'I want to order Vedhenna:',
       ...selectedItems.map((product) => `- ${product.name}: ${product.quantity}`),
-      '',
-      'Delivery address:',
       ''
     ].join('\n');
   }, [selectedItems]);
+
+  useEffect(() => {
+    if (!hasEditedOrderMessage) {
+      setOrderMessage(orderDetails);
+    }
+  }, [hasEditedOrderMessage, orderDetails]);
 
   const setProductQuantity = (slug, nextQuantity) => {
     setQuantities((currentQuantities) => ({
@@ -146,8 +152,15 @@ export default function OrderPage() {
     const email = formData.get('email');
     const phone = formData.get('phone');
     const address = formData.get('address');
+    const summary = String(formData.get('message') || '').trim();
     const note = String(formData.get('note') || '').trim();
-    const message = note ? `${orderDetails}\nCustomer note:\n${note}` : orderDetails;
+
+    if (!summary) {
+      setFormError('Please confirm the order summary before placing the order.');
+      return;
+    }
+
+    const message = note ? `${summary}\n\nCustomer note:\n${note}` : summary;
     const contactDetails = { name, email, phone, address, message };
 
     setFormError('');
@@ -182,6 +195,8 @@ export default function OrderPage() {
 
       setFormStatus('Order sent. We will get back soon.');
       form.reset();
+      setHasEditedOrderMessage(false);
+      setOrderMessage(orderDetails);
     } catch (error) {
       setFormStatus('');
       setFallbackEmailLink(getContactEmailLink(contactDetails));
@@ -282,7 +297,17 @@ export default function OrderPage() {
           >
             <div className="order-summary-box">
               <p className="eyebrow">Order summary</p>
-              <pre>{orderDetails}</pre>
+              <textarea
+                className="order-summary-textarea"
+                name="message"
+                rows="6"
+                value={orderMessage}
+                onChange={(event) => {
+                  setOrderMessage(event.target.value);
+                  setHasEditedOrderMessage(true);
+                }}
+                required
+              />
               <p>
                 Delivery or transport fee may be added based on the address. We will confirm the final order details before
                 processing.
