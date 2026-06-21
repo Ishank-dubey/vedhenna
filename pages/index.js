@@ -134,7 +134,7 @@ const navLinks = [
 const monthBannerStorageKey = 'vedhenna-month-banner-dismissed';
 
 export default function Home() {
-  const [activeSection, setActiveSection] = useState('product');
+  const [activeSection, setActiveSection] = useState('');
   const [showMonthBanner, setShowMonthBanner] = useState(false);
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || '';
   const socialImageUrl = siteUrl ? `${siteUrl}${seo.socialImage}` : seo.socialImage;
@@ -167,7 +167,9 @@ export default function Home() {
     const updateActiveSection = () => {
       const headerHeight = document.querySelector('.site-header')?.offsetHeight || 0;
       const activationLine = headerHeight + 48;
-      let currentSectionId = sections[0]?.id || 'product';
+      const hero = document.getElementById('top');
+      const heroBottom = hero?.getBoundingClientRect().bottom || 0;
+      let currentSectionId = '';
       let closestDistance = Number.POSITIVE_INFINITY;
 
       sections.forEach((section) => {
