@@ -2,6 +2,7 @@ import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import SiteFooter from '../components/SiteFooter';
 import { ingredientPages } from '../data/ingredients';
+import { defaultProduct, getProductApplyPath, products } from '../data/products';
 
 const seo = {
   title: 'Vedhenna | Natural Hair Care',
@@ -14,12 +15,11 @@ const seo = {
 const business = {
   name: 'Vedhenna',
   category: 'Natural hair care',
-  headline: 'Herbal hair care paste made with trusted botanical ingredients.',
+  headline: 'Herbal hair care products made with trusted botanical ingredients.',
   intro:
-    'A Hyderabad-based natural henna hair care paste crafted with traditional herbs for rich color, conditioning, and delivery across India.',
+    'Hyderabad-based natural hair care products crafted with traditional herbs for rich color, conditioning, and delivery across India.',
   phone: '+91 98286 08796',
   whatsappNumber: '919828608796',
-  whatsappMessage: 'I want to order Vedhenna - quantity is',
   email: 'preetisharma.0613@gmail.com',
   instagramUrl: 'https://www.instagram.com/vedhennabypreeti/',
   location: 'Located in Hyderabad, Telangana, India',
@@ -28,6 +28,7 @@ const business = {
   country: 'India',
   heroImage: '/vedhenna-hero.jpg',
   ingredients: ingredientPages,
+  products,
   benefits: [
     {
       title: 'Hair growth support',
@@ -46,19 +47,10 @@ const business = {
       description: 'Supports regular hair care routines focused on reducing breakage and hairfall.'
     }
   ],
-  productRates: [
-    {
-      product: 'Vedhenna Hair Care',
-      unit: '400ML',
-      usualRate: 'Rs 499',
-      introductoryRate: 'Rs 299',
-      availability: 'Introductory offer'
-    }
-  ],
   stats: [
     ['8', 'botanical ingredients', '#ingredients'],
-    ['1', 'signature product', '#product'],
-    ['4', 'key hair care benefits', '/usage-and-benefits']
+    ['2', 'Vedhenna products', '/products'],
+    ['', 'Read about the hair care benefits of Vedhenna products', '/usage-and-benefits']
   ],
   reviews: [
     {
@@ -117,77 +109,35 @@ const localBusinessJsonLd = {
 };
 
 const Icon = ({ children }) => <span className="icon" aria-hidden="true">{children}</span>;
+const loveFeatures = [
+  ['Helps reduce hair fall', '/reduce_hairfall.png', 'Hair fall reduction'],
+  ['Supports healthy hair growth', '/supports_healthy_hair_growth.png', 'Healthy hair growth'],
+  ['Nourishes and repairs', '/nourishes_repairs.png', 'Hair nourishment and repair'],
+  ['100% herbal and chemical free', '/chemical_free.png', 'Chemical free herbal care'],
+  ['Strengthens from roots', '/from_root_strength.png', 'Hair strength from roots'],
+  ['Ready to apply', '/ready_to_apply.png', 'Ready to apply Vedhenna']
+];
+const perfectForFeatures = [
+  ['Hair fall concerns', '/hair_fall_concerns.png', 'Hair fall concerns'],
+  ['Weak and thinning hair', '/weak_thinning.png', 'Weak and thinning hair'],
+  ['Dry and dull hair', '/dry_dull.png', 'Dry and dull hair'],
+  ['Dry and itchy scalp', '/Dry_itchy_scalp.png', 'Dry and itchy scalp']
+];
 const navLinks = [
-  ['product', 'Product'],
+  ['product', 'Products'],
   ['ingredients', 'Ingredients'],
-  ['rates', 'Price'],
   ['reviews', 'Reviews'],
   ['how-to-apply', 'How to Apply', '/how-to-apply'],
-  ['contact', 'Order']
+  ['order', 'Order', '/order']
 ];
-
-const isLikelyMobileDevice = () => {
-  if (typeof navigator === 'undefined') {
-    return false;
-  }
-
-  return /Android|iPhone|iPad|iPod|IEMobile|Opera Mini/i.test(navigator.userAgent);
-};
 
 const monthBannerStorageKey = 'vedhenna-month-banner-dismissed';
 
 export default function Home() {
-  const [formStatus, setFormStatus] = useState('');
-  const [formError, setFormError] = useState('');
-  const [fallbackEmailLink, setFallbackEmailLink] = useState('');
-  const [showMobileFallback, setShowMobileFallback] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [activeSection, setActiveSection] = useState('product');
-  const [highlightNameField, setHighlightNameField] = useState(false);
   const [showMonthBanner, setShowMonthBanner] = useState(false);
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || '';
   const socialImageUrl = siteUrl ? `${siteUrl}${seo.socialImage}` : seo.socialImage;
-  const whatsappLink = `https://wa.me/${business.whatsappNumber}?text=${encodeURIComponent(business.whatsappMessage)}`;
-  const emailFallbackLink = `mailto:${business.email}?subject=${encodeURIComponent('Vedhenna inquiry')}&body=${encodeURIComponent(business.whatsappMessage)}`;
-
-  const getContactEmailLink = ({ name, email, phone, address, message }) => {
-    const emailLines = [
-      business.whatsappMessage,
-      '',
-      `Name: ${name}`,
-      `Email: ${email}`
-    ];
-
-    if (phone) {
-      emailLines.push(`Phone: ${phone}`);
-    }
-
-    if (address) {
-      emailLines.push(`Delivery address: ${address}`);
-    }
-
-    emailLines.push('', 'Message:', message);
-
-    return `mailto:${business.email}?subject=${encodeURIComponent('Vedhenna inquiry')}&body=${encodeURIComponent(emailLines.join('\n'))}`;
-  };
-
-  const getContactWhatsappLink = ({ name, email, phone, address, message }) => {
-    const whatsappLines = [
-      business.whatsappMessage,
-      '',
-      `Name: ${name}`,
-      `Email: ${email}`,
-      `Delivery address: ${address}`
-    ];
-
-    if (phone) {
-      whatsappLines.push(`Phone: ${phone}`);
-    }
-
-    whatsappLines.push(`Message: ${message}`);
-
-    return `https://wa.me/${business.whatsappNumber}?text=${encodeURIComponent(whatsappLines.join('\n'))}`;
-  };
 
   const dismissMonthBanner = () => {
     setShowMonthBanner(false);
@@ -245,17 +195,6 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    if (activeSection !== 'contact') {
-      return undefined;
-    }
-
-    setHighlightNameField(true);
-    const timer = window.setTimeout(() => setHighlightNameField(false), 1800);
-
-    return () => window.clearTimeout(timer);
-  }, [activeSection]);
-
-  useEffect(() => {
     if (!showMonthBanner) {
       return undefined;
     }
@@ -273,60 +212,6 @@ export default function Home() {
 
   const handleBannerOrder = () => {
     dismissMonthBanner();
-    setActiveSection('contact');
-  };
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    const form = event.currentTarget;
-    const formData = new FormData(form);
-    const name = formData.get('name');
-    const email = formData.get('email');
-    const phone = formData.get('phone');
-    const address = formData.get('address');
-    const message = formData.get('message');
-    const contactDetails = { name, email, phone, address, message };
-
-    setFormError('');
-    setShowMobileFallback(false);
-    setIsSubmitting(true);
-
-    if (isLikelyMobileDevice()) {
-      setFallbackEmailLink(getContactEmailLink(contactDetails));
-      setFormStatus('If WhatsApp did not open, use Email or Call.');
-      setShowMobileFallback(true);
-      window.open(getContactWhatsappLink(contactDetails), '_blank', 'noopener,noreferrer');
-      form.reset();
-      setIsSubmitting(false);
-      return;
-    }
-
-    setFormStatus('Sending your message...');
-
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(contactDetails)
-      });
-
-      const result = await response.json();
-
-      if (!response.ok) {
-        throw new Error(result.message || 'Message could not be sent right now.');
-      }
-
-      setFormStatus('Email sent. We will get back soon.');
-      form.reset();
-    } catch (error) {
-      setFormStatus('');
-      setFallbackEmailLink(getContactEmailLink(contactDetails));
-      setFormError(`${error.message} You can still contact us by WhatsApp, phone, or email.`);
-    } finally {
-      setIsSubmitting(false);
-    }
   };
 
   return (
@@ -380,7 +265,7 @@ export default function Home() {
               alt="Vedhenna one month celebration banner"
             />
             <div className="month-banner-actions">
-              <a className="button primary" href="#order-name-target" onClick={handleBannerOrder}>
+              <a className="button primary" href="/order" onClick={handleBannerOrder}>
                 Order now
               </a>
             </div>
@@ -396,7 +281,7 @@ export default function Home() {
           {navLinks.map(([id, label, href]) => (
             <a
               className={activeSection === id ? 'active' : ''}
-              href={href || (id === 'contact' ? '#order-name-target' : `#${id}`)}
+              href={href || `#${id}`}
               key={id}
               onClick={() => {
                 if (!href) {
@@ -424,7 +309,7 @@ export default function Home() {
           <p className="hero-title">{business.headline}</p>
           <p className="hero-copy">{business.intro}</p>
           <div className="hero-actions">
-            <a className="button whatsapp" href="#order-name-target" onClick={() => setActiveSection('contact')}>
+            <a className="button whatsapp" href="/order">
               <Icon>&gt;</Icon>
               Order now
             </a>
@@ -441,8 +326,8 @@ export default function Home() {
           const StatElement = href ? 'a' : 'div';
 
           return (
-            <StatElement className="stat" href={href} key={label}>
-              <strong>{value}</strong>
+            <StatElement className={`stat ${value ? '' : 'stat-text-only'}`} href={href} key={label}>
+              {value ? <strong>{value}</strong> : null}
               <span>{label}</span>
             </StatElement>
           );
@@ -451,14 +336,33 @@ export default function Home() {
 
       <section className="section" id="product">
         <div className="section-heading">
-          <p className="eyebrow">The Product</p>
-          <h2>Vedhenna brings traditional herbs into a simple hair care paste.</h2>
+          <p className="eyebrow">The Products</p>
+          <h2>Vedhenna now has a small natural hair care catalogue.</h2>
           <p>
-            A single natural henna hair care paste from Hyderabad, focused on natural color, conditioning, hair growth support, and helping reduce hairfall. Vedhenna is available for delivery across India.
+            Choose from the original Vedhenna Henna Paste or the new Vedhenna Hair Pack. Both are made around familiar botanical hair care ingredients and are available for ordering from Hyderabad.
           </p>
-          <a className="section-link" href="/natural-henna-hair-care-hyderabad">
-            Natural henna hair care in Hyderabad and across India
+          <a className="section-link" href="/products">
+            View full product catalogue
           </a>
+        </div>
+        <div className="product-grid">
+          {business.products.map((product) => (
+            <article className="product-card" key={product.slug}>
+              <p className="eyebrow">{product.category}</p>
+              <h3>{product.name}</h3>
+              <p>{product.summary}</p>
+              <div className="product-card-meta">
+                <span>{product.introductoryPrice}</span>
+                <span>{product.status}</span>
+              </div>
+              <div className="product-card-actions">
+                <a className="button primary" href={`/products/${product.slug}`}>View product</a>
+                <a className="button secondary" href={`/order?product=${product.slug}`}>
+                  Order now
+                </a>
+              </div>
+            </article>
+          ))}
         </div>
       </section>
 
@@ -476,8 +380,8 @@ export default function Home() {
         </div>
         <div className="how-to-apply">
           <h3>How to apply</h3>
-          <p>Open the packet, wear the gloves provided, and apply the henna.</p>
-          <a href="/how-to-apply">Read application guidance</a>
+          <p>Select the product on the application page to see product-aware guidance.</p>
+          <a href={getProductApplyPath(defaultProduct)}>Read application guidance</a>
         </div>
         <div className="benefit-grid">
           {business.benefits.map((benefit) => (
@@ -489,53 +393,30 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="rates-section" id="rates">
-        <div className="section-heading">
-          <p className="eyebrow">Product Price</p>
-          <h2>Today&apos;s Vedhenna price.</h2>
-          <p>
-            Vedhenna is available at an introductory price for a limited time, with the usual price shown for clarity.
-          </p>
-        </div>
-        <div className="rates-table-wrap">
-          <table className="rates-table">
-            <caption>Current product rate</caption>
-            <thead>
-              <tr>
-                <th scope="col">Product</th>
-                <th scope="col">Unit</th>
-                <th scope="col">Usual Price</th>
-                <th scope="col">Introductory Price</th>
-                <th scope="col">Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              {business.productRates.map((item) => (
-                <tr key={item.product}>
-                  <th scope="row">{item.product}</th>
-                  <td>{item.unit}</td>
-                  <td className="usual-rate">{item.usualRate}</td>
-                  <td className="rate-value">{item.introductoryRate}</td>
-                  <td><span className="rate-status">{item.availability}</span></td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        <p className="rates-note">
-          The introductory price is Rs 299 for 400ML; the usual price is Rs 499. For delivery within Hyderabad, a small transport fee may be added based on the address. For delivery addresses outside Hyderabad, an additional delivery charge may apply.
-        </p>
-      </section>
-
       <section className="band">
         <div>
           <p className="eyebrow">Why Customers Choose Us</p>
-          <h2>Natural ingredients, clear rates, and quick WhatsApp ordering.</h2>
+          <h2>Herbal hair care made for strength, nourishment, and easy use.</h2>
         </div>
-        <div className="feature-list">
-          <p>Made with familiar herbs used in traditional hair care</p>
-          <p>Single product page keeps ordering simple</p>
-          <p>WhatsApp link makes customer questions quick to answer</p>
+        <div className="feature-groups">
+          <div className="feature-list">
+            <h3>Why you will love it</h3>
+            {loveFeatures.map(([label, image, alt]) => (
+              <p className="feature-row" key={label}>
+                <img src={image} alt={alt} />
+                <span>{label}</span>
+              </p>
+            ))}
+          </div>
+          <div className="feature-list feature-list-compact">
+            <h3>Perfect for</h3>
+            {perfectForFeatures.map(([label, image, alt]) => (
+              <p className="feature-row" key={label}>
+                <img src={image} alt={alt} />
+                <span>{label}</span>
+              </p>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -572,80 +453,6 @@ export default function Home() {
             <small>Open Instagram page</small>
           </span>
         </a>
-      </section>
-
-      <section className="contact" id="contact">
-        <div>
-          <p className="eyebrow">Order</p>
-          <h2>Start your Vedhenna order.</h2>
-          <p>
-            Share your details and delivery address to initiate your order. We will review it and get back to you soon.
-          </p>
-        </div>
-        <form className="contact-form" name="contact" onSubmit={handleSubmit}>
-          <label id="order-name-target" htmlFor="order-name">
-            Name
-            <input
-              className={highlightNameField ? 'field-focus-cue' : ''}
-              id="order-name"
-              type="text"
-              name="name"
-              placeholder="Your name"
-              required
-            />
-          </label>
-          <label>
-            Email
-            <input type="email" name="email" placeholder="you@example.com" required />
-          </label>
-          <label className="desktop-only-field">
-            Phone <span className="optional-label">Optional</span>
-            <input type="tel" name="phone" placeholder="+91 98765 43210" />
-          </label>
-          <label>
-            Address
-            <textarea
-              name="address"
-              rows="3"
-              placeholder="Delivery address"
-              required
-            />
-          </label>
-          <label>
-            What can we help with?
-            <textarea
-              name="message"
-              rows="5"
-              placeholder={business.whatsappMessage}
-              defaultValue={business.whatsappMessage}
-              required
-            />
-          </label>
-          <button className="button primary" type="submit" disabled={isSubmitting}>
-            <Icon>&gt;</Icon>
-            {isSubmitting ? 'Sending...' : 'Place order'}
-          </button>
-          {formStatus ? (
-            <p className={`form-status ${formStatus.includes('Email sent') ? 'success' : ''}`} role="status">
-              {formStatus}
-            </p>
-          ) : null}
-          {showMobileFallback ? (
-            <div className="form-fallbacks mobile-fallback" aria-label="Contact fallback options">
-              <a href={fallbackEmailLink || emailFallbackLink}>Email</a>
-              <a href={`tel:${business.phone.replace(/[^0-9]/g, '')}`}>Call</a>
-            </div>
-          ) : null}
-          {formError ? (
-            <div className="form-status error" role="alert">
-              <p>{formError}</p>
-              <div className="form-fallbacks">
-                <a href={whatsappLink} target="_blank" rel="noreferrer">WhatsApp</a>
-                <a href={fallbackEmailLink || emailFallbackLink}>Email</a>
-              </div>
-            </div>
-          ) : null}
-        </form>
       </section>
 
       <section className="contact-details" aria-label="Contact details">

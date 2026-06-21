@@ -24,12 +24,11 @@ export default function NaturalHennaHairCareHyderabadPage() {
           <span>Vedhenna</span>
         </a>
         <nav>
-          <a href="/#product">Product</a>
+          <a href="/products">Products</a>
           <a href="/#ingredients">Ingredients</a>
-          <a href="/#rates">Price</a>
           <a href="/#reviews">Reviews</a>
           <a href="/how-to-apply">How to Apply</a>
-          <a href="/#order-name-target">Order</a>
+          <a href="/order">Order</a>
         </nav>
       </header>
 
@@ -86,7 +85,7 @@ export default function NaturalHennaHairCareHyderabadPage() {
           </div>
 
           <div className="local-seo-actions">
-            <a className="button primary" href="/#order-name-target">Order Vedhenna</a>
+            <a className="button primary" href="/order">Order Vedhenna</a>
             <a className="button secondary" href="/how-to-apply">How to apply</a>
           </div>
         </section>

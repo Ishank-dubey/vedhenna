@@ -5,6 +5,20 @@ const siteUrl = 'https://www.vedhenna.com';
 const title = 'Vedhenna Usage and Benefits | Natural Hair Blend';
 const description =
   'Vedhenna is a 100% natural hair blend made to enrich hair color naturally, with botanical ingredients, easy use, and no preservatives or chemicals.';
+const loveFeatures = [
+  ['Helps reduce hair fall', '/reduce_hairfall.png', 'Hair fall reduction'],
+  ['Supports healthy hair growth', '/supports_healthy_hair_growth.png', 'Healthy hair growth'],
+  ['Nourishes and repairs', '/nourishes_repairs.png', 'Hair nourishment and repair'],
+  ['100% herbal and chemical free', '/chemical_free.png', 'Chemical free herbal care'],
+  ['Strengthens from roots', '/from_root_strength.png', 'Hair strength from roots'],
+  ['Ready to apply', '/ready_to_apply.png', 'Ready to apply Vedhenna']
+];
+const perfectForFeatures = [
+  ['Hair fall concerns', '/hair_fall_concerns.png', 'Hair fall concerns'],
+  ['Weak and thinning hair', '/weak_thinning.png', 'Weak and thinning hair'],
+  ['Dry and dull hair', '/dry_dull.png', 'Dry and dull hair'],
+  ['Dry and itchy scalp', '/Dry_itchy_scalp.png', 'Dry and itchy scalp']
+];
 
 export default function UsageAndBenefitsPage() {
   return (
@@ -24,12 +38,11 @@ export default function UsageAndBenefitsPage() {
           <span>Vedhenna</span>
         </a>
         <nav>
-          <a href="/#product">Product</a>
+          <a href="/products">Products</a>
           <a href="/#ingredients">Ingredients</a>
-          <a href="/#rates">Price</a>
           <a href="/#reviews">Reviews</a>
           <a href="/how-to-apply">How to Apply</a>
-          <a href="/#order-name-target">Order</a>
+          <a href="/order">Order</a>
         </nav>
       </header>
 
@@ -82,6 +95,33 @@ export default function UsageAndBenefitsPage() {
           </article>
         </section>
 
+        <section className="band">
+          <div>
+            <p className="eyebrow">Why Customers Choose Us</p>
+            <h2>Herbal hair care made for strength, nourishment, and easy use.</h2>
+          </div>
+          <div className="feature-groups">
+            <div className="feature-list">
+              <h3>Why you will love it</h3>
+              {loveFeatures.map(([label, image, alt]) => (
+                <p className="feature-row" key={label}>
+                  <img src={image} alt={alt} />
+                  <span>{label}</span>
+                </p>
+              ))}
+            </div>
+            <div className="feature-list feature-list-compact">
+              <h3>Perfect for</h3>
+              {perfectForFeatures.map(([label, image, alt]) => (
+                <p className="feature-row" key={label}>
+                  <img src={image} alt={alt} />
+                  <span>{label}</span>
+                </p>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section className="usage-content">
           <div className="section-heading">
             <p className="eyebrow">How it fits your routine</p>
@@ -92,7 +132,7 @@ export default function UsageAndBenefitsPage() {
             </p>
           </div>
           <div className="local-seo-actions">
-            <a className="button primary" href="/#order-name-target">Order Vedhenna</a>
+            <a className="button primary" href="/order">Order Vedhenna</a>
             <a className="button secondary" href="/how-to-apply">How to apply</a>
           </div>
         </section>

@@ -1,13 +1,12 @@
 import Head from 'next/head';
-import Link from 'next/link';
 import SiteFooter from '../../components/SiteFooter';
 import { getIngredientBySlug, ingredientPages } from '../../data/ingredients';
 
 const siteUrl = 'https://www.vedhenna.com';
 
 export default function IngredientPage({ ingredient }) {
-  const title = `${ingredient.name} in Vedhenna Hair Care Paste`;
-  const description = `${ingredient.name} is one of the botanicals in Vedhenna natural henna hair care paste for color, conditioning, and everyday hair wellness.`;
+  const title = `${ingredient.name} in Vedhenna Hair Care Products`;
+  const description = `${ingredient.name} is one of the botanicals used in Vedhenna natural hair care products for color, conditioning, and everyday hair wellness.`;
 
   return (
     <>
@@ -22,12 +21,12 @@ export default function IngredientPage({ ingredient }) {
       </Head>
       <main className="ingredient-page">
         <header className="ingredient-page-header">
-          <Link href="/#ingredients">Back to ingredients</Link>
+          <a href="/#ingredients">Back to ingredients</a>
           <p className="eyebrow">Vedhenna Ingredient</p>
           <h1>{ingredient.name} in Vedhenna</h1>
           <p className="botanical-name">{ingredient.botanicalName}</p>
           <p>
-            {ingredient.summary} In Vedhenna, this ingredient is part of an eight-botanical natural henna hair care paste
+            {ingredient.summary} In Vedhenna, this ingredient is part of a botanical natural hair care product family
             created for customers who want natural color, conditioning, and a simple application routine.
           </p>
         </header>
@@ -53,12 +52,12 @@ export default function IngredientPage({ ingredient }) {
           <article className="ingredient-info-card">
             <h2>Role in Vedhenna</h2>
             <p>
-              {ingredient.vedhennaRole} It works with the other Vedhenna botanicals to support a balanced hair care paste
+              {ingredient.vedhennaRole} It works with the other Vedhenna botanicals to support balanced hair care products
               instead of a single-ingredient treatment.
             </p>
             <div className="ingredient-actions">
-              <Link className="button primary" href="/#order-name-target">Order Vedhenna</Link>
-              <Link className="button secondary" href="/usage-and-benefits">Usage and benefits</Link>
+              <a className="button primary" href="/order">Order Vedhenna</a>
+              <a className="button secondary" href="/usage-and-benefits">Usage and benefits</a>
             </div>
           </article>
 
@@ -87,9 +86,9 @@ export default function IngredientPage({ ingredient }) {
             {ingredientPages
               .filter((item) => item.slug !== ingredient.slug)
               .map((item) => (
-                <Link className="ingredient-chip" href={`/ingredients/${item.slug}`} key={item.slug}>
+                <a className="ingredient-chip" href={`/ingredients/${item.slug}`} key={item.slug}>
                   {item.name}
-                </Link>
+                </a>
             ))}
           </div>
         </section>
