@@ -55,6 +55,11 @@ const business = {
   reviews: [
     {
       quote:
+        'It is really good! It gave my hair a beautiful color and worked as an excellent conditioner too. My hair is naturally curly and frizzy, but your henna made it so much smoother. I am really happy with the results. I feel like applying it again and again. Please keep continuing the great work and maintain the same high quality. Wishing you all the very best and good luck. May your product become even better and reach many more people.',
+      name: 'Jhanshi'
+    },
+    {
+      quote:
         'Of all the hennas I have tried, this one is the best. I do not see any gray hair after a day; the color turns either black or maroon, which was not the case with previous organic henna I tried. As for frizz, my hair feels less frizzy compared to when I have used other henna products, though it is not completely frizz-free. I think that may be due to my natural hair type rather than the henna itself.',
       name: 'Bindu'
     },
