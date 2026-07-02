@@ -56,7 +56,7 @@ const business = {
     {
       quote:
         'It is really good! It gave my hair a beautiful color and worked as an excellent conditioner too. My hair is naturally curly and frizzy, but your henna made it so much smoother. I am really happy with the results. I feel like applying it again and again. Please keep continuing the great work and maintain the same high quality. Wishing you all the very best and good luck. May your product become even better and reach many more people.',
-      name: 'Jhanshi'
+      name: 'Jhansi'
     },
     {
       quote:
